@@ -19,27 +19,28 @@
           <div class="image">
             <img src="assets/images/ship_white.png" alt="Logo">
           </div>
-
-          <div class="input">
-            <div>
-              <p>Correo electrónico</p>
-              <hr>
+        <form action="includes/procesar_login_socio.php" method="POST">
+            <div class="input">
+              <div>
+                <p>Correo electrónico</p>
+                <hr>
+              </div>
+              <input type="email" name="email" id="email" plac  eholder="Ingrese Correo electrónico">
             </div>
-            <input type="text" name="email" id="email" placeholder="Ingrese Correo electrónico">
-          </div>
 
-          <div class="input">
-            <div>
-              <p>Contraseña</p>
-              <hr>
+            <div class="input">
+              <div>
+                <p>Contraseña</p>
+                <hr>
+              </div>
+              <input type="password" name="password" id="password" placeholder="Ingrese Contraseña">
             </div>
-            <input type="password" name="password" id="password" placeholder="Ingrese Contraseña">
-          </div>
 
-          <div class="button_login">
-              <button class="button" type="submit" name="login" id="login">Ingresar</button>
+            <div class="button_login">
+                <button class="button" type="submit" name="login" id="login">Ingresar</button>
+            </div>
           </div>
-        </div>
+        </form>
         <div class="login_footer">
           <p>¿Olvidaste tu contraseña?</p>
           <a href="#">Click aquí</a>
