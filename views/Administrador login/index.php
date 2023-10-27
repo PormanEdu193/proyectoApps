@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/assets/css/style_login.css">
+  <link rel="stylesheet" href="../../assets/css/style_login.css">
   <title>Login administrador</title>
 </head>
 <body>
@@ -49,7 +49,7 @@
       <div class="rigth">
         <div class="info">
               <div class="title">
-                <div class="wellcome">
+                <div class="welcome">
                   <p style="text-align: center;"><b>Bienvenido Administrador</b></p>
                 </div>
                 <div class="name">

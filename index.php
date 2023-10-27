@@ -49,7 +49,7 @@
       <div class="rigth">
         <div class="info">
               <div class="title">
-                <div class="wellcome">
+                <div class="welcome">
                   <p><b>Bienvenido!</b></p>
                 </div>
                 <div class="name">
