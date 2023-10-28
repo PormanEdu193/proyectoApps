@@ -25,7 +25,7 @@
                 <p>Correo electrónico</p>
                 <hr>
               </div>
-              <input type="email" name="email" id="email" plac  eholder="Ingrese Correo electrónico">
+              <input type="email" name="email" id="email" placeholder="Ingrese Correo electrónico">
             </div>
 
             <div class="input">
