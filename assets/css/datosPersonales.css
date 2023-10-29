@@ -1,0 +1,45 @@
+@import url(Variables.css);
+
+.datosPersonales{
+    display: grid;
+    gap: 50px;
+    grid-template-columns: auto 1fr;
+    width: 85%;
+    color: #000000;
+}
+
+.datosPersonales__imagen{
+    width: 14.375rem;
+}
+
+
+.datosPersonales__datos{
+    display: grid;
+    grid-template-rows: min-content auto;
+    background-color: var(--Color-panel-datosPersonales);
+    border-radius:.9375rem ;
+    padding: 0.75rem;
+}
+
+
+.datos__encabezado--nombre{
+    text-align: center;
+    font-size: 1.875em;
+    font-family: var(--fuente-Alata);
+}
+
+.datos__resto{
+    align-self: center;
+    text-align: left;
+    font-family: var(--fuente-Josefin-Sans);
+}
+
+.datos__resto tr{
+ margin: 1.19rem 0;
+}
+
+.datos__resto tr  th:first-of-type{
+    font-size: 25px;
+    font-style: bold;
+    
+}

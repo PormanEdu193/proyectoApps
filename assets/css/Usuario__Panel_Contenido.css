@@ -1,0 +1,54 @@
+@import url(Usuario__header__interfaces.css);
+
+.PanelContenido{
+    display: grid;
+    grid-template-rows: auto 1fr;
+    width: 80%;
+}
+
+.PanelContenido{
+    box-shadow: -20px 19px 12px 0px rgba(0, 0, 0, 0.25);
+    border-radius: .9375rem;
+}
+
+.PanelContenido__encabezado{
+    text-align: center;
+    background-color: var(--Color-Panel-contenido__encabezado);
+    color: var(--Color-Panel-contenido__contenido);
+    padding: 2.12rem 0;
+    font-size: 1.875em;
+
+    border-radius: .9375rem .9375rem 0rem 0rem;
+}
+
+.PanelContenido__encabezado h3{
+    font-family: var(--fuente-Alata);
+}
+
+.PanelContenido__contenido{
+    background-color: var(--Color-Panel-contenido__contenido);
+    border-radius: 0rem 0rem .9375rem .9375rem;
+
+    padding: 3.12rem 0px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+    flex-direction: column;
+    gap: 20%;
+}
+
+
+
+.tablaDatosGrandes__columnas{
+    padding: 15px;
+    border: 1px solid #393939;
+    background-color: #ffffff;
+    color: black;
+}
+
+.tablaDatosGrandes__filas:first-of-type .tablaDatosGrandes__columnas{
+    color: #ffffff;
+    background-color: #696262;
+}
+ 
+

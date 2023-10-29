@@ -1,0 +1,7 @@
+@import url(Variables.css);
+
+.boton{
+    padding: 1.06rem 2.62rem;
+    background-color: #505253;
+    color: #ffffff;
+}
