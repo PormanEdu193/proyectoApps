@@ -71,7 +71,7 @@
                         </div>
                     </div>
                 </section>
-                <button class="boton">Modificar datos</button>
+                <a class="boton" href="#">Modificar datos</a>
             </div>
         </section>
     </main>

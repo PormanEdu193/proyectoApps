@@ -4,4 +4,11 @@
     padding: 1.06rem 2.62rem;
     background-color: #505253;
     color: #ffffff;
+    border-radius: 15px;
+}
+
+.boton:hover{
+    cursor: pointer;
+    background-color: #31ada1;
+    color: var(--Color-Panel-contenido__contenido);
 }
