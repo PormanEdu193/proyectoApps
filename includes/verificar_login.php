@@ -7,7 +7,7 @@
         public function __construct($connection){
             $this->connection=$connection;
         }
-        function vericate_login_socio($username, $password){
+        function verify_login_socio($username, $password){
             $SQL = "SELECT * FROM Usuarios WHERE rol='Socio'AND email = ? ";
             $stmt = $this->connection->prepare($SQL) ;
             $stmt->bind_param("s",$username);

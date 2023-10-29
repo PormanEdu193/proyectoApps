@@ -9,10 +9,14 @@
     if($_SERVER["REQUEST_METHOD"]=="POST" && isset($_POST["login"])){
         $username = $_POST["email"];
         $password = $_POST["password"];
-        $verification= $verify->vericate_login_socio($username,$password);
+        $verification= $verify->verify_login_socio($username,$password);
         $socio = $verify->get_socio_instance();
         if($verification){
-            echo "Inicio de sesión exitoso. ¡Bienvenido, " . $socio->get_nombre() . "!";
+            session_start();
+            $_SESSION['nombre_usuario'] = $socio->get_nombre();
+            $_SESSION['alert'] = false ;
+            header("Location: ../views/Usuario?login_success=true");
+            exit;
         }
         else{
             echo "Inicio de sesión fallido. Usuario o contraseña incorrectos.";
