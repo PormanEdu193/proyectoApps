@@ -26,7 +26,7 @@
             <div class="PanelContenido__encabezado"><h3>Sus barcos</h3></div>
             <div class="PanelContenido__contenido">
                 <table class="tablaDatosGrandes">
-                    <tbody>
+                    <tbody class="tablaDatosGrandes__cuerpo">
                     <tr class="tablaDatosGrandes__filas">
                         <th class="tablaDatosGrandes__columnas">Id del barco</th>
                         <th class="tablaDatosGrandes__columnas">Id del socio</th>

@@ -25,8 +25,8 @@
         <section class="PanelContenido">
             <div class="PanelContenido__encabezado"><h3>Su historial de salidas</h3></div>
             <div class="PanelContenido__contenido">
-                <table>
-                    <tbody>
+                <table class="tablaDatosGrandes">
+                    <tbody class="tablaDatosGrandes__cuerpo">
                     <tr class="tablaDatosGrandes__filas">
                         <th class="tablaDatosGrandes__columnas">Id de salida</th>
                         <th class="tablaDatosGrandes__columnas">Id del barco</th>
