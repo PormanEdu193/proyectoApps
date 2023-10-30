@@ -1,4 +1,4 @@
-@import url(Variables.css);
+@import url(../Variables/variables.css);
 header{
     width: 100vw;
     height: 13.0625rem;
@@ -6,7 +6,7 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 5.3125rem;
-    color: #ffffff;
+    color: var(--color-letra);
 }
 .header__Nombre{
     font-family: var(--fuente-Alata);
