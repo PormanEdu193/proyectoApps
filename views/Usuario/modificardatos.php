@@ -84,11 +84,12 @@ if (empty($_SESSION['nombre_usuario'])) {
                                         <th>Id usuario : <?php echo $socio->get_id_socio(); ?></th>
                                     </tr>
                                 </table>
+                                <input type="submit" value="Guardar Cambios">
                             </form>
                         </div>
                     </div>
                 </section>
-                <a class="boton" type="submit">Guardar Cambios</a>
+
             </div>
         </section>
     </main>
