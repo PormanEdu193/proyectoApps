@@ -14,6 +14,24 @@
     <title>Barcos</title>
 </head>
 <body>
+    <?php
+        include("./.././../includes/barco.php");
+        include("./.././../config/database.php");
+        $db = new Database();
+        $connection = $db->connect();
+        session_start();
+        $id = $_SESSION['id_usuario'];
+        $listaBarcos = array();
+
+        $consulta = "SELECT * FROM barcos WHERE id_socio = '$id'";
+        $result = mysqli_query($connection, $consulta);
+        if($result){
+            while($row = $result->fetch_array()){
+                $barco = new Barco($row['id_barco'], $row['matricula'], $row['nombre_barco'], $row['numero_amarre'], $row['cuota'] ,$row['id_socio']);
+                array_push($listaBarcos, $barco);
+            }
+        }
+    ?>
     <header>
         <h1 class="header__Nombre">CLUB NÁUTICO ALBATROS</h1>
         <ul class="header__opciones">
@@ -39,6 +57,22 @@
                         <th class="tablaDatosGrandes__columnas">Número de amarre</th>
                         <th class="tablaDatosGrandes__columnas">Coutas pagadas</th>
                     </tr>
+                    
+                        <?php
+                            foreach ($listaBarcos as $barco) {
+                                ?>
+                                <tr>
+                                    <td><?php echo $barco->get_id_barco(); ?></td>
+                                    <td><?php echo $barco->get_id_socio(); ?></td>
+                                    <td><?php echo $barco->get_matricula(); ?></td>
+                                    <td><?php echo $barco->get_nombre_barco(); ?></td>
+                                    <td><?php echo $barco->get_numero_amarre(); ?></td>
+                                    <td><?php echo $barco->get_cuota(); ?></td>
+                                </tr>
+                                <?php
+                            }
+                        ?>
+                    
                     </tbody>
                 </table>
                 
