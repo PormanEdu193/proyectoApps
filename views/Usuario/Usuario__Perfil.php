@@ -111,7 +111,7 @@ if (empty($_SESSION['nombre_usuario'])) {
                         </div>
                     </div>
                 </section>
-                <a class="boton" href="#">Modificar datos</a>
+                <a class="boton" href="modificardatos.php">Modificar datos</a>
             </div>
         </section>
     </main>
