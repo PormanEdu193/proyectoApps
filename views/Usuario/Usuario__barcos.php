@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (empty($_SESSION['nombre_usuario'])) {
+    header("location: ./.././../index.php");
+    
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +26,6 @@
         include("./.././../config/database.php");
         $db = new Database();
         $connection = $db->connect();
-        session_start();
         $id = $_SESSION['id_usuario'];
         $listaBarcos = array();
 
