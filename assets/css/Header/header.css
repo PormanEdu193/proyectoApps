@@ -6,6 +6,7 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 5.3125rem;
+    color: #ffffff;
 }
 .header__Nombre{
     font-family: var(--fuente-Alata);
