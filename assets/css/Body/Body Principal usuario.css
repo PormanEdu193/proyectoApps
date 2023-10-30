@@ -1,0 +1,12 @@
+body{
+    background-image: url(../../images/Imagin\ club\ nautico\ 1.jpg);
+}
+
+.logoContainer{
+    z-index: 99;
+    padding: 1.5625rem 3rem 1.625rem 3.0625rem;
+    border: 10px solid #ffffff;
+}
+.logoContainer img{
+    width: 18.75rem;
+}

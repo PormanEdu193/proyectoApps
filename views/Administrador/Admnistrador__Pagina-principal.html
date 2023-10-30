@@ -3,9 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../../assets/css/reset.css">
+    <link rel="stylesheet" href="../../assets/css/body principal usuario.css">
+    <link rel="stylesheet" href="../../assets/css/Usuario__Panel_Contenido.css">
+    <link rel="stylesheet" href="../../assets/css/datosPersonales.css">
+    <link rel="stylesheet" href="../../assets/css/Usuario__header.css">
+    <link href="../../assets/external/noty/noty.css" rel="stylesheet">
+    <title>Pagina principal</title>
 </head>
 <body>
-    
-</body>
+    <header>
+        <h1 class="header__Nombre">CLUB NÁUTICO ALBATROS</h1>
+        <ul class="header__opciones">
+            <li><a href="../../includes/cerrar_session.php">Salir</a></li>
+        </ul>   
+    </header>
+    <main>
+        <section class="PanelContenido">
+            <div class="PanelContenido__encabezado"><h3>Sus datos personales</h3></div>
+            <div class="PanelContenido__contenido">
+                <section class="datosPersonales">
+                    <img src="../../assets/images/Icono_3.png" alt="imagen Default Usuario" class="datosPersonales__imagen">
+                    <div class="datosPersonales__datos">
+                        <div class="datos__encabezado">
+                            <h3 class="datos__encabezado--nombre">Un nombre</h3>
+                        </div>
+                        <div class="datos__resto">
+                            <table>
+                                <tr>
+                                    <th>
+                                        Cédula : 
+                                    </th>
+                                    <th class="datos__resto--cedula">
+
+                                    </th>                            
+                                </tr>
+                                <tr>
+                                    <th>
+                                        Telefono : 
+                                    </th>
+                                    <th class="datos__resto--telefono">
+
+                                    </th>                            
+                                </tr>
+                                <tr>
+                                    <th>
+                                        Email : 
+                                    </th>
+                                    <th class="datos__resto--email">
+
+                                    </th>                            
+                                </tr>
+                                <tr>
+                                    <th>
+                                        Id usuario : 
+                                    </th>
+                                    <th class="datos__resto--idUsuario">
+
+                                    </th>                            
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+    <div class="capa"></div>
+
+</body> 
 </html>
