@@ -1,4 +1,4 @@
-@import url(Variables.css);
+@import url(../Variables/variables.css);
 
 .datosPersonales{
     display: grid;

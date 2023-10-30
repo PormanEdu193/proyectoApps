@@ -17,7 +17,7 @@
           </div>
 
           <div class="image">
-            <img src="assets/images/ship_white.png" alt="Logo">
+            <img src="./.././../assets/images/ship_white.png" alt="Logo">
           </div>
 
           <div class="input">
