@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (empty($_SESSION['nombre_usuario'])) {
+    header("location: ./.././../index.php");
+    
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +20,26 @@
     <title>Salidas</title>
 </head>
 <body>
+    <?php
+        include("./.././../includes/salidas.php");
+        include("./.././../config/database.php");
+        $db = new Database();
+        $connection = $db->connect();
+        $id = $_SESSION['id_usuario'];
+        $listaSalidas = array();
+
+        $consulta = "SELECT salidas.id_salida, salidas.fecha_salida, salidas.hora_salida,salidas.destino, salidas.id_barco, salidas.id_patron 
+                        FROM (socios INNER JOIN barcos on socios.id_socio = barcos.id_socio) INNER JOIN salidas
+                        on  barcos.id_barco = salidas.id_barco
+                        WHERE socios.id_socio = '$id'";
+        $result = mysqli_query($connection, $consulta);
+        if($result){
+            while($row = $result->fetch_array()){
+                $salida = new Salida($row['id_salida'], $row['fecha_salida'], $row['hora_salida'], $row['destino'], $row['id_barco'] ,$row['id_patron']);
+                array_push($listaSalidas, $salida);
+            }
+        }
+    ?>
     <header>
         <h1 class="header__Nombre">CLUB NÁUTICO ALBATROS</h1>
         <ul class="header__opciones">
@@ -38,6 +65,20 @@
                         <th class="tablaDatosGrandes__columnas">Hora</th>
                         <th class="tablaDatosGrandes__columnas">Destino</th>
                     </tr>
+                    <?php
+                        foreach ($listaSalidas as $salida) {
+                            ?>
+                            <tr>
+                                <td><?php echo $salida->get_id_salida(); ?></td>
+                                <td><?php echo $salida->get_id_barco(); ?></td>
+                                <td><?php echo $salida->get_id_patron(); ?></td>
+                                <td><?php echo $salida->get_fecha(); ?></td>
+                                <td><?php echo $salida->get_hora(); ?></td>
+                                <td><?php echo $salida->get_destino(); ?></td>
+                            </tr>
+                            <?php
+                        }
+                    ?>
                     </tbody>
                 </table>
             </div>
