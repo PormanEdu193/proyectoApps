@@ -12,8 +12,9 @@ if (empty($_SESSION['nombre_usuario'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/reset.css">
-    <link rel="stylesheet" href="../../assets/css/body principal usuario.css">
-    <link rel="stylesheet" href="../../assets/css/Usuario__header.css">
+    <link rel="stylesheet" href="../../assets/css/Body/Body principal.css">
+    <link rel="stylesheet" href="../../assets/css/Body/Body Principal usuario.css">
+    <link rel="stylesheet" href="../../assets/css/Header/header.css">
     <link href="../../assets/external/noty/noty.css" rel="stylesheet">
     <title>Pagina principal</title>
 </head>

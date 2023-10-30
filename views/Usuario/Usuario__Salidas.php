@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/reset.css">
-    <link rel="stylesheet" href="../../assets/css/Usuario__header__interfaces.css">
-    <link rel="stylesheet" href="../../assets/css/Usuario__Panel_Contenido.css">
+    <link rel="stylesheet" href="../../assets/css/Body/Body principal.css">
+    <link rel="stylesheet" href="../../assets/css/Header/header.css">
+    <link rel="stylesheet" href="../../assets/css/Header/header usuario.css">
+    <link rel="stylesheet" href="../../assets/css/Body/Body Opciones usuario.css">
+    <link rel="stylesheet" href="../../assets/css/Panel contenido/Panel_Contenido.css">
 
     <title>Salidas</title>
 </head>

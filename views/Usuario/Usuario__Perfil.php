@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/reset.css">
-    <link rel="stylesheet" href="../../assets/css/Usuario__header__interfaces.css">
-    <link rel="stylesheet" href="../../assets/css/Usuario__Panel_Contenido.css">
-    <link rel="stylesheet" href="../../assets/css/datosPersonales.css">
-    <link rel="stylesheet" href="../../assets/css/boton.css">
+    <link rel="stylesheet" href="../../assets/css/Body/Body principal.css">
+    <link rel="stylesheet" href="../../assets/css/Body/Body Opciones usuario.css">
+    <link rel="stylesheet" href="../../assets/css/Header/header.css">
+    <link rel="stylesheet" href="../../assets/css/Header/header usuario.css">
+    <link rel="stylesheet" href="../../assets/css/Panel contenido/Panel_Contenido.css"> 
+    <link rel="stylesheet" href="../../assets/css/Datos Personales/datosPersonales.css">
+    <link rel="stylesheet" href="../../assets/css/Boton/boton.css">
 
     <title>Perfil</title>
 </head>
@@ -28,7 +31,7 @@
             <div class="PanelContenido__encabezado"><h3>Sus datos personales</h3></div>
             <div class="PanelContenido__contenido">
                 <section class="datosPersonales">
-                    <img src="../../assets/images/Icono_3.png" alt="" class="datosPersonales__imagen">
+                    <img src="../../assets/images/Icono_3.png" alt="Imagen default usuario" class="datosPersonales__imagen">
                     <div class="datosPersonales__datos">
                         <div class="datos__encabezado">
                             <h3 class="datos__encabezado--nombre">Un nombre</h3>
