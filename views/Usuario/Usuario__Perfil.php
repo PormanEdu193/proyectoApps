@@ -25,7 +25,7 @@ if (empty($_SESSION['nombre_usuario'])) {
         include("./.././../config/database.php");
         $db = new Database();
         $connection = $db->connect();
-        session_start();
+        
         $id = $_SESSION['id_usuario'];
         $socio;
 
