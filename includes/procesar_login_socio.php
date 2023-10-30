@@ -17,6 +17,7 @@
                 if($verification){
                     session_start();
                     $_SESSION['nombre_usuario'] = $socio->get_nombre();
+                    $_SESSION['id_usuario'] = $socio->get_id_socio();
                     $_SESSION['alert'] = false ;
                     header("Location: ../views/Usuario?login_success=true");
                     exit;
