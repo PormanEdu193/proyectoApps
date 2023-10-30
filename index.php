@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/css/style_login.css">
+  <link href="assets/external/noty/noty.css" rel="stylesheet">
   <title>Login</title>
 </head>
 <body>
@@ -59,10 +60,44 @@
               </div>
               <div class="register">
                   <p>¿No tienes cuenta? Registrate aquí</p>
-                  <button class="button" type="button"> Registarse </button>
+                  <button class="button" type="button" onclick="register()"> Registarse </button>
               </div>
         </div>
       </div>
     </div>
+    <script>
+      function register(){
+        window.location.href = "views/Registro";
+      }
+    </script>
+    <script src="assets/external/noty/noty.js"></script>
+    <?php 
+      if(isset($_GET['login_error'])){
+        $error_msg = $_GET['error_msg'];
+        echo "
+          <script>
+            new Noty({
+                type: 'error',
+                layout: 'bottomLeft',
+                theme: 'metroui',
+                text: '$error_msg',
+                timeout: 2000,
+            }).show();
+          </script>"; 
+      }
+      if(isset($_GET['login_alert'])){
+        $alert_msg = $_GET['alert_msg'];
+        echo "
+          <script>
+            new Noty({
+                type: 'warning',
+                layout: 'bottomLeft',
+                theme: 'metroui',
+                text: '$alert_msg',
+                timeout: 2000,
+            }).show();
+          </script>"; 
+      }
+    ?>
 </body>
 </html> 
