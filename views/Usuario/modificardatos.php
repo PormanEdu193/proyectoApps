@@ -56,62 +56,40 @@ if (empty($_SESSION['nombre_usuario'])) {
         
     </header>
     <main>
-        <section class="PanelContenido">
-            <div class="PanelContenido__encabezado"><h3>Sus datos personales</h3></div>
+    <section class="PanelContenido">
+            <div class="PanelContenido__encabezado"><h3>Editar Datos Personales</h3></div>
             <div class="PanelContenido__contenido">
                 <section class="datosPersonales">
                     <img src="../../assets/images/Icono_3.png" alt="Imagen default usuario" class="datosPersonales__imagen">
                     <div class="datosPersonales__datos">
-                        <div class="datos__encabezado">
-                            <h3 class="datos__encabezado--nombre"><?php echo $socio->get_nombre(); ?></h3>
-                        </div>
                         <div class="datos__resto">
-                            <table>
-                                <tr>
-                                    <th>
-                                        Cédula : <?php echo $socio->get_identificacion(); ?>
-                                    </th>
-                                    <th class="datos__resto--cedula">
-
-                                    </th>                            
-                                </tr>
-                                <tr>
-                                    <th>
-                                        Telefono : <?php echo $socio->get_telefono(); ?>
-                                    </th>
-                                    <th class="datos__resto--telefono">
-
-                                    </th>                            
-                                </tr>
-                                <tr>
-                                    <th>
-                                        Email : <?php echo $socio->get_email(); ?>
-                                    </th>
-                                    <th class="datos__resto--email">
-
-                                    </th>                            
-                                </tr>
-                                <tr>
-                                    <th>
-                                        Direccion : <?php echo $socio->get_direccion(); ?>
-                                    </th>
-                                    <th class="datos__resto--direccion">
-
-                                    </th>                            
-                                </tr>
-                                <tr>
-                                    <th>
-                                        Id usuario : <?php echo $socio->get_id_socio(); ?>
-                                    </th>
-                                    <th class="datos__resto--idUsuario">
-
-                                    </th>                            
-                                </tr>
-                            </table>
+                            <form action="procesar_edicion.php" method="post">
+                                <table>
+                                    <tr>
+                                        <th>Nombre : <input type="text" name="nombre" value="<?php echo $socio->get_nombre(); ?>"></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Cédula : <input type="text" name="identificacion" value="<?php echo $socio->get_identificacion(); ?>"></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Telefono : <input type="text" name="telefono" value="<?php echo $socio->get_telefono(); ?>"></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Email : <input type="text" name="email" value="<?php echo $socio->get_email(); ?>"></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Direccion : <input type="text" name="direccion" value="<?php echo $socio->get_direccion(); ?>"></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Id usuario : <?php echo $socio->get_id_socio(); ?></th>
+                                    </tr>
+                                </table>
+                                <input type="submit" value="Guardar Cambios">
+                            </form>
                         </div>
                     </div>
                 </section>
-                <a class="boton" href="modificardatos.php">Modificar datos</a>
+
             </div>
         </section>
     </main>

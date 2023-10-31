@@ -11,6 +11,12 @@
             $row = mysqli_fetch_array($result);
             return $row;
         }
+
+        function actualizarDatos($identificacion, $telefono, $email, $direccion, $nombre){
+            $consulta = "UPDATE Socios SET nombre = '$nombre', identificacion = '$identificacion', telefono = '$telefono', email = '$email', direccion = '$direccion' WHERE id_socio = '$id'";
+            $result = mysqli_query($this->connection, $consulta);
+            return $result;
+        }
     }
    
 
