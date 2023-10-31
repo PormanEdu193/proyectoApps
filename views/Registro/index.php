@@ -38,7 +38,7 @@
                                 <hr>
                             </div>
                             <div class="id_selection">
-                                <select name="identificatio_type" id="identificatio_type">
+                                <select name="identification_type" id="identification_type">
                                     <option value="C.c">C.c</option>
                                     <option value="C.e">C.e</option>
                                 </select>
@@ -68,7 +68,7 @@
                             <input type="email" name="email" id="email" placeholder="Ingrese correo electronico ej. albatros@example.com">
                         </div>
                         <div class="button_continue">
-                             <button class="button" type="submit" name="continue" id="continue">Continuar</button>
+                        <button name="continue" class="button" type="submit"  id="continue">Continuar</button>
                         </div>
                     </form>
                 </div>
@@ -118,7 +118,7 @@
                         warnig = false;
                     }
 
-                    if (identification.value === "" || isNaN(identification.value)) {
+                    if (identification.value === "" || isNaN(identification.value)||identification.value.length < 7) {
                         identification.style.border = "2px solid red";
                         warnig = true;
                     } else {
@@ -130,7 +130,7 @@
                         }
                     }
 
-                    if (telNumber.value === "" || isNaN(telNumber.value)) {
+                    if (telNumber.value === "" || isNaN(telNumber.value)||telNumber.value.length < 10) {
                         telNumber.style.border = "2px solid red";
                         warnig = true;
                     } else {

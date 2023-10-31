@@ -35,6 +35,26 @@
             return false;
        }
 
+       public function verify_register_socio($email,$identification_socio){
+        
+        $email = $this->connection->real_escape_string($email);
+        $identification_socio = $this->connection->real_escape_string($identification_socio);
+    
+        $SQL = "SELECT COUNT(*) AS count FROM Socios WHERE identificacion = '$identification_socio' OR email = '$email' ";
+
+        $result = $this->connection->query($SQL) or die("Error en la consulta".mysqli_error($this->connection));
+        $row = $result->fetch_assoc();
+
+        $count = $row['count'];
+        if($count == 0){
+            return true;
+        }else{
+            return false;
+        }
+    
+       }
+            
+
        public function get_socio_instance(){
             return $this->socio;
        }

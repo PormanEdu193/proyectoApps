@@ -3,6 +3,7 @@
  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../assets/external/noty/noty.css" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/registrar_cuenta_style.css">
     <title>Document</title>
  </head>
@@ -25,7 +26,7 @@
                         <p>Registro Cuenta</p>
                         <hr>
                     </div>
-                    <form action="">
+                    <form id=form action="#" method="POST">
                         <div class="input">
                             <div>
                                 <p>Correo electrónico</p>
@@ -55,5 +56,92 @@
             </div>
            
         </div>
+        <script src="../../assets/external/noty/noty.js"></script>
+        <script>
+
+            var email = document.getElementById('email');
+            var email_confirmation = document.getElementById('email_confirmacion');
+            var password = document.getElementById('password');
+            var form = document.getElementById('form');  
+            var warnig=false;
+            var warnig_msg="Hay campos vacios en el formulario o que no cumplen con los requisitos necesarios";
+
+            form.addEventListener("submit", e=>{
+                e.preventDefault();
+                checkInputs();
+                if(!warnig){
+                    form.submit();
+                }else{
+                    sentAlert()
+                    checkForm()
+                }
+            });
+            
+            function checkForm(){
+                form.addEventListener("mouseover", e=>{
+                    checkInputs()
+                })
+            }
+            function sentAlert(){
+                new Noty({
+                        type: 'warning',
+                        layout: 'bottomLeft',
+                        theme: 'metroui',
+                        text: 'Hay campos vacios en el formulario o que no cumplen con los requisitos necesarios',
+                        timeout: 3500,
+                    }).show();
+             }
+            function checkInputs(){
+                    var emailPattern = /\S+@\S+\.\S+/;
+                    if (!emailPattern.test(email.value)) {
+                        email.style.border = "2px solid red";
+                        warnig = true;
+                    } else {
+                        email.style.border = "none";
+                        warnig = false;
+                    }
+
+                    if (!emailPattern.test(email_confirmation.value)){
+                        email_confirmation.style.border = "2px solid red";
+                        warnig = true;
+                    } else {
+                        email_confirmation.style.border = "none";
+                        if(warnig){
+                            warnig = true;
+                        }else{
+                            warnig = false;
+                        }
+                    }
+
+                    if (password.value === "" || password.value.length < 8 || !password.value.match(/[A-Z]/) || !password.value.match(/[0-9]/)) {
+                        password.style.border = "2px solid red";
+                        warnig = true;
+                    } else {
+                        password.style.border = "none";
+                        if(warnig){
+                            warnig = true;
+                        }else{
+                            warnig = false;
+                        }
+                    }
+
+                    if(email_confirmation.value != email.value || email_confirmation.value ===  "" || email.value === "" ){
+                        email_confirmation.style.border = "2px solid red";
+                        email.style.border = "2px solid red"
+                        warnig = true;
+                    }else{
+                        email_confirmation.style.border = "none";
+                        email.style.border = "none"
+                        if(warnig){
+                            warnig = true;
+                        }else{
+                            warnig = false;
+                        }
+                    }
+                    
+
+            }
+
+        </script>
  </body>
  </html>

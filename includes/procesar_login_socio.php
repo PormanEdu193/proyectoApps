@@ -1,5 +1,5 @@
 <?php
-    include("verificar_login.php");
+    include("verificar_login_registro.php");
     include("../config/database.php");
 
     $db = new Database();
