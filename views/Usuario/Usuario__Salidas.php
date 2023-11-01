@@ -68,13 +68,13 @@ if (empty($_SESSION['nombre_usuario'])) {
                     <?php
                         foreach ($listaSalidas as $salida) {
                             ?>
-                            <tr>
-                                <td><?php echo $salida->get_id_salida(); ?></td>
-                                <td><?php echo $salida->get_id_barco(); ?></td>
-                                <td><?php echo $salida->get_id_patron(); ?></td>
-                                <td><?php echo $salida->get_fecha(); ?></td>
-                                <td><?php echo $salida->get_hora(); ?></td>
-                                <td><?php echo $salida->get_destino(); ?></td>
+                            <tr class="tablaDatosGrandes__filas">
+                                <th class="tablaDatosGrandes__columnas"><?php echo $salida->get_id_salida(); ?></th>
+                                <th class="tablaDatosGrandes__columnas"><?php echo $salida->get_id_barco(); ?></th>
+                                <th class="tablaDatosGrandes__columnas"><?php echo $salida->get_id_patron(); ?></th>
+                                <th class="tablaDatosGrandes__columnas"><?php echo $salida->get_fecha(); ?></th>
+                                <th class="tablaDatosGrandes__columnas"><?php echo $salida->get_hora(); ?></th>
+                                <th class="tablaDatosGrandes__columnas"><?php echo $salida->get_destino(); ?></th>
                             </tr>
                             <?php
                         }

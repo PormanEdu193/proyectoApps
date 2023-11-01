@@ -59,32 +59,31 @@ if (empty($_SESSION['nombre_usuario'])) {
     <section class="PanelContenido">
             <div class="PanelContenido__encabezado"><h3>Editar Datos Personales</h3></div>
             <div class="PanelContenido__contenido">
-                <section class="datosPersonales">
-                    <img src="../../assets/images/Icono_3.png" alt="Imagen default usuario" class="datosPersonales__imagen">
+                <section class="datosPersonales" style="display:flex; justify-content:center;">                    
                     <div class="datosPersonales__datos">
-                        <div class="datos__resto">
-                            <form action="procesar_edicion.php" method="post">
+                        <div class="datos__resto" style="gap:50px">
+                            <form action="procesar_edicion.php" method="post" style="gap: 20px; padding: 25px; display: flex; justify-content: center; flex-direction: column;">
                                 <table>
                                     <tr>
-                                        <th>Nombre : <input type="text" name="nombre" value="<?php echo $socio->get_nombre(); ?>"></th>
+                                        <th>Nombre : <input type="text" name="nombre" value="<?php echo $socio->get_nombre(); ?>" style="display:inline-block"></th>
                                     </tr>
                                     <tr>
-                                        <th>Cédula : <input type="text" name="identificacion" value="<?php echo $socio->get_identificacion(); ?>"></th>
+                                        <th>Cédula : <input type="text" name="identificacion" value="<?php echo $socio->get_identificacion(); ?>" style="display:inline-block"></th>
                                     </tr>
                                     <tr>
-                                        <th>Telefono : <input type="text" name="telefono" value="<?php echo $socio->get_telefono(); ?>"></th>
+                                        <th>Telefono : <input type="text" name="telefono" value="<?php echo $socio->get_telefono(); ?>" style="display:inline-block"></th>
                                     </tr>
                                     <tr>
-                                        <th>Email : <input type="text" name="email" value="<?php echo $socio->get_email(); ?>"></th>
+                                        <th>Email : <input type="text" name="email" value="<?php echo $socio->get_email(); ?>" style="display:inline-block"></th>
                                     </tr>
                                     <tr>
-                                        <th>Direccion : <input type="text" name="direccion" value="<?php echo $socio->get_direccion(); ?>"></th>
+                                        <th>Direccion : <input type="text" name="direccion" value="<?php echo $socio->get_direccion(); ?>" style="display:inline-block"></th>
                                     </tr>
                                     <tr>
                                         <th>Id usuario : <?php echo $socio->get_id_socio(); ?></th>
                                     </tr>
                                 </table>
-                                <input type="submit" value="Guardar Cambios">
+                                <input class="boton" type="submit" value="Guardar Cambios">
                             </form>
                         </div>
                     </div>

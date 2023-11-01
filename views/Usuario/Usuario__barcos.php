@@ -67,13 +67,13 @@ if (empty($_SESSION['nombre_usuario'])) {
                         <?php
                             foreach ($listaBarcos as $barco) {
                                 ?>
-                                <tr>
-                                    <td><?php echo $barco->get_id_barco(); ?></td>
-                                    <td><?php echo $barco->get_id_socio(); ?></td>
-                                    <td><?php echo $barco->get_matricula(); ?></td>
-                                    <td><?php echo $barco->get_nombre_barco(); ?></td>
-                                    <td><?php echo $barco->get_numero_amarre(); ?></td>
-                                    <td><?php echo $barco->get_cuota(); ?></td>
+                                <tr class="tablaDatosGrandes__filas">
+                                    <th class="tablaDatosGrandes__columnas"><?php echo $barco->get_id_barco(); ?></th>
+                                    <th class="tablaDatosGrandes__columnas"><?php echo $barco->get_id_socio(); ?></th>
+                                    <th class="tablaDatosGrandes__columnas"><?php echo $barco->get_matricula(); ?></th>
+                                    <th class="tablaDatosGrandes__columnas"><?php echo $barco->get_nombre_barco(); ?></th>
+                                    <th class="tablaDatosGrandes__columnas"><?php echo $barco->get_numero_amarre(); ?></th>
+                                    <th class="tablaDatosGrandes__columnas"><?php echo $barco->get_cuota(); ?></th>
                                 </tr>
                                 <?php
                             }
