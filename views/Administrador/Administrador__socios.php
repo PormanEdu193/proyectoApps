@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="../../assets/css/Panel contenido/Panel_Contenido.css">
     <link rel="stylesheet" href="../../assets/css/Datos Personales/datosPersonales.css">
     <link rel="stylesheet" href="../../assets/css/Boton/Boton administrador.css">
+    <link rel="stylesheet" href="../../assets/css/Boton/boton.css">
     <link href="../../assets/external/noty/noty.css" rel="stylesheet">
-    <title>Administrador Administradores</title>
+    <title>Socios</title>
 </head>
 <body>
     <header>
@@ -22,9 +23,22 @@
     </header>
     <main>
         <section class="PanelContenido">
-            <div class="PanelContenido__encabezado"><h3>Administradores</h3></div>
+            <div class="PanelContenido__encabezado"><h3>Socios</h3></div>
             <div class="PanelContenido__contenido">
-
+                <table>
+                    <tbody>
+                    <tr class="tablaDatosGrandes__filas">
+                        <th class="tablaDatosGrandes__columnas">Id usuario</th>
+                        <th class="tablaDatosGrandes__columnas">Cedula</th>
+                        <th class="tablaDatosGrandes__columnas">Nombre</th>
+                        <th class="tablaDatosGrandes__columnas">Telefono</th>
+                        <th class="tablaDatosGrandes__columnas">Direccion</th>
+                        <th class="tablaDatosGrandes__columnas">Email</th>
+                        <th class="tablaDatosGrandes__columnas">Acciones</th>
+                    </tr>
+                    </tbody>
+                </table>
+                <a href="" class="boton">Agregar nuevo Socio</a>
             </div>
         </section>
     </main>

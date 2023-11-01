@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="../../assets/css/Panel contenido/Panel_Contenido.css">
     <link rel="stylesheet" href="../../assets/css/Datos Personales/datosPersonales.css">
     <link rel="stylesheet" href="../../assets/css/Boton/Boton administrador.css">
+    <link rel="stylesheet" href="../../assets/css/Boton/boton.css">
     <link href="../../assets/external/noty/noty.css" rel="stylesheet">
-    <title>Administrador Barcos</title>
+    <title>Barcos</title>
 </head>
 <body>
     <header>
@@ -24,7 +25,20 @@
         <section class="PanelContenido">
             <div class="PanelContenido__encabezado"><h3>Barcos</h3></div>
             <div class="PanelContenido__contenido">
-
+                <table>
+                    <tbody>
+                    <tr class="tablaDatosGrandes__filas">
+                        <th class="tablaDatosGrandes__columnas">Id del barco</th>
+                        <th class="tablaDatosGrandes__columnas">Id del socio</th>
+                        <th class="tablaDatosGrandes__columnas">Número de matricula</th>
+                        <th class="tablaDatosGrandes__columnas">Nombre</th>
+                        <th class="tablaDatosGrandes__columnas">Numero de amarre</th>
+                        <th class="tablaDatosGrandes__columnas">Cuota a pagar</th>
+                        <th class="tablaDatosGrandes__columnas">Acciones</th>
+                    </tr>
+                    </tbody>
+                </table>
+                <a href="" class="boton">Agregar nuevo Barco</a>
             </div>
         </section>
     </main>

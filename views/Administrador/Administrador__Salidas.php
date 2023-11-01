@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="../../assets/css/Panel contenido/Panel_Contenido.css">
     <link rel="stylesheet" href="../../assets/css/Datos Personales/datosPersonales.css">
     <link rel="stylesheet" href="../../assets/css/Boton/Boton administrador.css">
+    <link rel="stylesheet" href="../../assets/css/Boton/boton.css">
     <link href="../../assets/external/noty/noty.css" rel="stylesheet">
-    <title>Administrador Salidas</title>
+    <title>Salidas</title>
 </head>
 <body>
     <header>
@@ -24,7 +25,20 @@
         <section class="PanelContenido">
             <div class="PanelContenido__encabezado"><h3>Salidas</h3></div>
             <div class="PanelContenido__contenido">
-
+                <table>
+                    <tbody>
+                    <tr class="tablaDatosGrandes__filas">
+                        <th class="tablaDatosGrandes__columnas">Id de salida</th>
+                        <th class="tablaDatosGrandes__columnas">Id del barco</th>
+                        <th class="tablaDatosGrandes__columnas">Id del patron</th>
+                        <th class="tablaDatosGrandes__columnas">Fecha</th>
+                        <th class="tablaDatosGrandes__columnas">Hora</th>
+                        <th class="tablaDatosGrandes__columnas">Destino</th>
+                        <th class="tablaDatosGrandes__columnas">Acciones</th>
+                    </tr>
+                    </tbody>
+                </table>
+                <a href="" class="boton">Agregar nueva Salida</a>
             </div>
         </section>
     </main>
