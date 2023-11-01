@@ -1,0 +1,64 @@
+@import url(../Variables/variables.css);
+
+
+.containerBotones{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    justify-content: space-between;
+}
+
+.containerBotones .botonAdministrador:nth-of-type(1){
+    background-color: rgba(190, 237, 128, 0.45);
+
+}
+
+.containerBotones .botonAdministrador:nth-of-type(2){
+    background-color: rgba(89, 217, 153, 0.45);
+}
+
+.containerBotones .botonAdministrador:nth-of-type(3){
+    background-color: rgba(78, 179, 222, 0.45);
+}
+
+.containerBotones .botonAdministrador:nth-of-type(4){
+    background-color: rgba(224, 33, 48, 0.45);
+}
+
+
+.botonAdministrador{
+    display: grid;
+    width: 14.8125rem;
+    grid-template-rows:min-content max-content;
+    border-radius: 3.125rem;
+    align-content: center;
+
+}
+
+.botonAdministrador__descripcion{
+    color: #ffffff;
+    text-align: center;
+    background-color:#7D7D7D;
+    font-family: var(--fuente-Alata);
+    font-size: 1.5625em;
+    border-radius: 3.125rem 3.125rem 0px 0px ;
+    padding: 15px 0px;
+
+}
+
+.botonAdministrador__imagen{
+    display: flex;
+    border-radius: 0px 0px 3.125rem 3.125rem;
+    width: 100%;
+    justify-content: center;
+    padding: .625rem;
+}
+
+
+.botonAdministrador__imagen--imagen{
+    justify-self: center;
+    width: 9.375rem;
+    border-radius: 0px 0px .9375rem .9375rem;
+}
+
+
