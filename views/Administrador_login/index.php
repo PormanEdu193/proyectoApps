@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../../assets/css/style_login.css">
+  <link href="../../assets/external/noty/noty.css" rel="stylesheet">
   <title>Login administrador</title>
 </head>
 <body>
@@ -19,26 +20,27 @@
           <div class="image">
             <img src="./.././../assets/images/ship_white.png" alt="Logo">
           </div>
-
-          <div class="input">
-            <div>
-              <p>Correo electrónico</p>
-              <hr>
+          <form action="./.././../includes/procesar_login_admin.php" method="POST">
+            <div class="input">
+              <div>
+                <p>Correo electrónico</p>
+                <hr>
+              </div>
+              <input type="text" name="email" id="email" placeholder="Ingrese Correo electrónico">
             </div>
-            <input type="text" name="email" id="email" placeholder="Ingrese Correo electrónico">
-          </div>
 
-          <div class="input">
-            <div>
-              <p>Contraseña</p>
-              <hr>
+            <div class="input">
+              <div>
+                <p>Contraseña</p>
+                <hr>
+              </div>
+              <input type="password" name="password" id="password" placeholder="Ingrese Contraseña">
             </div>
-            <input type="password" name="password" id="password" placeholder="Ingrese Contraseña">
-          </div>
 
-          <div class="button_login">
-              <button class="button" type="submit" name="login" id="login">Ingresar</button>
-          </div>
+            <div class="button_login">
+                <button class="button" type="submit" name="login" id="login">Ingresar</button>
+            </div>
+        </form>
         </div>
         <div class="login_footer">
           <p>¿Olvidaste tu contraseña?</p>
@@ -59,5 +61,34 @@
         </div>
       </div>
     </div>
+    <script src="../../assets/external/noty/noty.js"></script>
+    <?php 
+      if(isset($_GET['login_error'])){
+        $error_msg = $_GET['error_msg'];
+        echo "
+          <script>
+            new Noty({
+                type: 'error',
+                layout: 'bottomLeft',
+                theme: 'metroui',
+                text: '$error_msg',
+                timeout: 2000,
+            }).show();
+          </script>"; 
+      }
+      if(isset($_GET['login_alert'])){
+        $alert_msg = $_GET['alert_msg'];
+        echo "
+          <script>
+            new Noty({
+                type: 'warning',
+                layout: 'bottomLeft',
+                theme: 'metroui',
+                text: '$alert_msg',
+                timeout: 2000,
+            }).show();
+          </script>"; 
+      }
+    ?>
 </body>
 </html> 
