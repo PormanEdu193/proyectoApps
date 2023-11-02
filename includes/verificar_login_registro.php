@@ -1,9 +1,12 @@
 <?php 
     include("socio_crud.php");
     include("socio.php");
+    include("admin.php");
+    include("admin_crud.php");
     class Verify{
         private $connection;
         private $socio;
+        private $admin;
         public function __construct($connection){
             $this->connection=$connection;
         }
@@ -35,6 +38,25 @@
             return false;
        }
 
+       function verify_login_admin($username, $password){
+            $SQL = "SELECT * FROM Usuarios WHERE rol='Administrador'AND email = ? ";
+            $stmt = $this->connection->prepare($SQL) ;
+            $stmt->bind_param("s",$username);
+            $stmt->execute() or die("Error en la consulta".mysqli_error($stmt));
+            $result= $stmt-> get_result();
+            if($result->num_rows==1){
+                $row = $result->fetch_assoc();
+                if($password == $row['contraseña']){
+                    $id_user = $row['id_usuario'];
+                    $admin_crud = new AdminCrud($this->connection);
+                    $admin_info = $admin_crud->get_admin($id_user);
+                    $this->admin = new Admin($admin_info['id_usuario'], $admin_info['email']); 
+                    return true;
+                }
+            }
+            return false;
+        }
+
        public function verify_register_socio($email,$identification_socio){
         
         $email = $this->connection->real_escape_string($email);
@@ -58,6 +80,10 @@
        public function get_socio_instance(){
             return $this->socio;
        }
+
+       public function get_admin_instance(){
+        return $this->admin;
+   }
     }
    
 
