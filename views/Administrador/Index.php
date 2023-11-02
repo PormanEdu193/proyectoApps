@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (empty($_SESSION['id_usuario'])) {
+    header("location: ./.././../views/Administrador_login/index.php");   
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +20,29 @@
     <title>Pagina principal</title>
 </head>
 <body>
+    <script src="../../assets/external/noty/noty.js"></script>
+    <?php
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        
+        if (isset($_GET['login_success']) && !$_SESSION['alert']) {
+            $idUsuario = $_SESSION['id_usuario'];
+            echo "
+                <script>
+                    new Noty({
+                        type: 'success',
+                        layout: 'topRight',
+                        theme: 'metroui',
+                        text: '<p style=\"font-size:120%;\"><b>✅Inicio de sesión exítoso</b></p><p style=\"font-size:110%;\">Bienvenido admin: $idUsuario!</p>',
+                        timeout: 2000,
+                    }).show();
+                </script>"; 
+            $_SESSION['alert'] = true;
+        }
+
+         
+        ?>
     <header>
         <h1 class="header__Nombre">CLUB NÁUTICO ALBATROS</h1>
         <ul class="header__opciones">
@@ -28,13 +57,13 @@
                     <img src="../../assets/images/Icono_3.png" alt="imagen Default Usuario" class="datosPersonales__imagen">
                     <div class="datosPersonales__datos">
                         <div class="datos__encabezado">
-                            <h3 class="datos__encabezado--nombre">Un nombre</h3>
+                            <h3 class="datos__encabezado--nombre"><?php echo $_SESSION['id_usuario'] ?></h3>
                         </div>
                         <div class="datos__resto">
                             <table>
                                 <tr>
                                     <th>
-                                        Cédula : 
+                                        Cédula : <?php echo $_SESSION['id_usuario'] ?>
                                     </th>
                                     <th class="datos__resto--cedula">
 
@@ -50,7 +79,7 @@
                                 </tr>
                                 <tr>
                                     <th>
-                                        Email : 
+                                        Email : <?php echo $_SESSION['email'] ?>
                                     </th>
                                     <th class="datos__resto--email">
 
@@ -102,6 +131,6 @@
         </section>
     </main>
     <div class="capa" style="z-index: -1;"></div>
-
+    
 </body> 
 </html>
