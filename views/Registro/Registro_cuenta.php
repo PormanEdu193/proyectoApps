@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if (empty($_SESSION['socio'])) {
+        header("location: ./.././../index.php");   
+    }
+?>
+
 <!DOCTYPE html>
  <html lang="en">
  <head>
@@ -26,7 +33,7 @@
                         <p>Registro Cuenta</p>
                         <hr>
                     </div>
-                    <form id=form action="#" method="POST">
+                    <form id=form action="../../includes/procesar_registro_usuario.php" method="POST">
                         <div class="input">
                             <div>
                                 <p>Correo electrónico</p>
@@ -51,6 +58,7 @@
                         <div class="button_register">
                              <button class="button" type="submit" name="registrar" id="registrar">Registrar</button>
                         </div>
+                        
                     </form>
                 </div>
             </div>

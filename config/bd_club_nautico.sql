@@ -20,12 +20,12 @@ USE `bd_club_nautico` ;
 --
 
 CREATE TABLE `Barcos` (
-  `id_barco` int(11) NOT NULL,
+  `id_barco` varchar(45) NOT NULL,
   `matricula` varchar(45) DEFAULT NULL,
   `nombre_barco` varchar(45) DEFAULT NULL,
   `numero_amarre` int(11) DEFAULT NULL,
   `cuota` varchar(45) DEFAULT NULL,
-  `id_socio` int(11) NOT NULL
+  `id_socio` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -35,7 +35,7 @@ CREATE TABLE `Barcos` (
 --
 
 CREATE TABLE `Patrones` (
-  `id_patron` int(11) NOT NULL,
+  `id_patron` varchar(45) NOT NULL,
   `nombre` varchar(45) DEFAULT NULL,
   `identificacion` varchar(45) DEFAULT NULL,
   `direccion` varchar(45) DEFAULT NULL,
@@ -50,12 +50,12 @@ CREATE TABLE `Patrones` (
 --
 
 CREATE TABLE `Salidas` (
-  `id_salida` int(11) NOT NULL,
+  `id_salida` varchar(45) NOT NULL,
   `fecha_salida` date DEFAULT NULL,
   `hora_salida` time DEFAULT NULL,
   `destino` varchar(45) DEFAULT NULL,
-  `id_barco` int(11) NOT NULL,
-  `id_patron` int(11) NOT NULL
+  `id_barco` varchar(45) NOT NULL,
+  `id_patron` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -65,7 +65,7 @@ CREATE TABLE `Salidas` (
 --
 
 CREATE TABLE `Socios` (
-  `id_socio` int(11) NOT NULL,
+  `id_socio` varchar(45) NOT NULL,
   `nombre` varchar(45) NOT NULL,
   `identificacion` varchar(45) DEFAULT NULL,
   `direccion` varchar(45) DEFAULT NULL,
@@ -80,8 +80,8 @@ CREATE TABLE `Socios` (
 --
 
 CREATE TABLE `Socios_Usuarios` (
-  `id_socio` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL
+  `id_socio` varchar(45) NOT NULL,
+  `id_usuario` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -91,7 +91,7 @@ CREATE TABLE `Socios_Usuarios` (
 --
 
 CREATE TABLE `Usuarios` (
-  `id_usuario` int(11) NOT NULL,
+  `id_usuario` varchar(45) NOT NULL,
   `email` varchar(45) DEFAULT NULL,
   `contraseña` varchar(45) DEFAULT NULL,
   `rol` varchar(45) DEFAULT NULL

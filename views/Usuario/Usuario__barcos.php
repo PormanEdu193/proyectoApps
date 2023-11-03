@@ -29,7 +29,7 @@ if (empty($_SESSION['nombre_usuario'])) {
         $id = $_SESSION['id_usuario'];
         $listaBarcos = array();
 
-        $consulta = "SELECT * FROM barcos WHERE id_socio = '$id'";
+        $consulta = "SELECT * FROM Barcos WHERE id_socio = '$id'";
         $result = mysqli_query($connection, $consulta);
         if($result){
             while($row = $result->fetch_array()){

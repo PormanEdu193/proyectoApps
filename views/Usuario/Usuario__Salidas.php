@@ -28,10 +28,10 @@ if (empty($_SESSION['nombre_usuario'])) {
         $id = $_SESSION['id_usuario'];
         $listaSalidas = array();
 
-        $consulta = "SELECT salidas.id_salida, salidas.fecha_salida, salidas.hora_salida,salidas.destino, salidas.id_barco, salidas.id_patron 
-                        FROM (socios INNER JOIN barcos on socios.id_socio = barcos.id_socio) INNER JOIN salidas
-                        on  barcos.id_barco = salidas.id_barco
-                        WHERE socios.id_socio = '$id'";
+        $consulta = "SELECT Salidas.id_salida, Salidas.fecha_salida, Salidas.hora_salida,Salidas.destino, Salidas.id_barco, Salidas.id_patron 
+                        FROM (Socios INNER JOIN Barcos on Socios.id_socio = Barcos.id_socio) INNER JOIN Salidas
+                        on  Barcos.id_barco = Salidas.id_barco
+                        WHERE Socios.id_socio = '$id'";
         $result = mysqli_query($connection, $consulta);
         if($result){
             while($row = $result->fetch_array()){
