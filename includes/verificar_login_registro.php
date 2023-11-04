@@ -102,7 +102,7 @@
        public function get_socio_instance(){
               return $this->socio;
        }
-       public function get_amdin_instance(){
+       public function get_admin_instance(){
             return $this->admin;
        }
         public function get_usuario_instance(){
