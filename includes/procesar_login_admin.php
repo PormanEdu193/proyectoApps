@@ -13,7 +13,7 @@
         if (!empty($username) and !empty($password)) {
             if (filter_var($username, FILTER_VALIDATE_EMAIL)) {
                 $verification= $verify->verify_login_admin($username,$password);
-                $admin = $verify->get_socio_instance();
+                $admin = $verify->get_admin_instance();
                 if($verification){
                     session_start();
                     $_SESSION['id_usuario'] = $admin->get_id_socio();
