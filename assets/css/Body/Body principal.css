@@ -6,6 +6,7 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     display: grid;
+    justify-items: center;
     grid-template-rows: auto 1fr;
     overflow-x: hidden;
 }

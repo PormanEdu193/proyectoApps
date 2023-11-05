@@ -13,18 +13,13 @@
         if (!empty($username) and !empty($password)) {
             if (filter_var($username, FILTER_VALIDATE_EMAIL)) {
                 $verification= $verify->verify_login_admin($username,$password);
-                $admin = $verify->get_socio_instance();
-                $usuario = $verify ->get_usuario_instance();
+                $admin = $verify->get_admin_instance();
                 if($verification){
                     session_start();
-                    $_SESSION['nombre'] = $admin->get_nombre();
+                    $_SESSION['id_usuario'] = $admin->get_id_socio();
                     $_SESSION['email'] = $admin->get_email();
-                    $_SESSION['id_usuario'] = $usuario->get_id();
-                    $_SESSION['telefono'] = $admin->get_telefono();
-                    $_SESSION['identificacion'] = $admin->get_identificacion();
-
                     $_SESSION['alert'] = false ;
-                    header("Location: ../views/Administrador/index.php?login_success=true");
+                    header("Location: ../views/Administrador?login_success=true");
                     exit;
                 }
                 else{

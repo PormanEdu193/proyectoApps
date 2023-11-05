@@ -33,8 +33,6 @@
                 $row = $result->fetch_assoc();
                 if($password == $row['contraseña']){
                     $id_user = $row['id_usuario'];
-                    $usuario_info = $this->usuario_crud->get_user($id_user);
-                    $this->usuario = new Usuario($usuario_info['id_usuario'], $usuario_info['email'], $usuario_info['contraseña'], $usuario_info['rol']);
                     $SQL = "SELECT * FROM Socios_Usuarios WHERE id_usuario = ?";
                     $stmt = $this->connection->prepare($SQL);
                     $stmt->bind_param("i", $id_user);
@@ -62,20 +60,10 @@
                 $row = $result->fetch_assoc();
                 if($password == $row['contraseña']){
                     $id_user = $row['id_usuario'];
-                    $usuario_info = $this->usuario_crud->get_user($id_user);
-                    $this->usuario = new Usuario($usuario_info['id_usuario'], $usuario_info['email'], $usuario_info['contraseña'], $usuario_info['rol']);
-                    $SQL = "SELECT * FROM Socios_Usuarios WHERE id_usuario = ?";
-                    $stmt = $this->connection->prepare($SQL);
-                    $stmt->bind_param("i", $id_user);
-                    $stmt->execute();
-                    $result = $stmt->get_result();
-                    if($result->num_rows==1){
-                        $row = $result->fetch_assoc();
-                        $id_socio = $row['id_socio'];
-                        $socio_info = $this->socio_crud->get_socio($id_socio);
-                        $this->socio = new Socio($socio_info['id_socio'], $socio_info['nombre'], $socio_info['identificacion'], $socio_info['direccion'], $socio_info['email'], $socio_info['telefono']); 
-                        return true;
-                    }
+                    $admin_crud = $this->admin_crud;
+                    $admin_info = $admin_crud->get_admin($id_user);
+                    $this->admin = new Admin($admin_info['id_usuario'], $admin_info['email']); 
+                    return true;
                 }
             }
             return false;

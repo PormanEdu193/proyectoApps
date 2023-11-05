@@ -62,7 +62,7 @@ if (empty($_SESSION['nombre_usuario'])) {
                 <section class="datosPersonales" style="display:flex; justify-content:center;">                    
                     <div class="datosPersonales__datos">
                         <div class="datos__resto" style="gap:50px">
-                            <form action="procesar_edicion.php" method="post" style="gap: 20px; padding: 25px; display: flex; justify-content: center; flex-direction: column;">
+                            <form action="../../includes/procesar_edicion.php" method="post" style="gap: 20px; padding: 25px; display: flex; justify-content: center; flex-direction: column;">
                                 <table>
                                     <tr>
                                         <th>Nombre : <input type="text" name="nombre" value="<?php echo $socio->get_nombre(); ?>" style="display:inline-block"></th>
