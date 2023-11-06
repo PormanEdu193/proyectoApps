@@ -64,14 +64,14 @@ if (empty($_SESSION['id_usuario'])) {
                         if (!empty($patrones)) {
                             foreach ($patrones as $patron) {
                                 echo "<tr>";
-                                echo "<td>" . $patron['id_patron'] . "</td>";
-                                echo "<td>" . $patron['identificacion'] . "</td>";
-                                echo "<td>" . $patron['nombre'] . "</td>";
-                                echo "<td>" . $patron['telefono'] . "</td>";
-                                echo "<td>" . $patron['direccion'] . "</td>";
-                                echo "<td>" . $patron['email'] . "</td>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $patron['id_patron'] . "</td>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $patron['identificacion'] . "</td>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $patron['nombre'] . "</td>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $patron['telefono'] . "</td>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $patron['direccion'] . "</td>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $patron['email'] . "</td>";
                                 ?>
-                                <td>
+                                <th class="tablaDatosGrandes__columnas">
                                 <?php echo '<a href="Modificar/modificar_patrones.php?id='.$patron['id_patron'].'"><input type="button" value="Actualizar" class="botonUsuario"></a>'; ?>
                                 -
                                 <?php echo '<a href="../../includes/eliminar_patron.php?id='.$patron['id_patron'].'"><input type="button" value="Eliminar" class="botonUsuario"></a>'; ?>
