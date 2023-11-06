@@ -25,6 +25,10 @@
     background-color: rgba(224, 33, 48, 0.45);
 }
 
+.containerBotones .botonAdministrador:nth-of-type(5){
+    background-color: rgba(255, 242, 0, 0.45);
+}
+
 
 .botonAdministrador{
     display: grid;
