@@ -5,7 +5,17 @@
         public function __construct($connection){
             $this->connection=$connection;
         }
-
+        
+        public function get_user($id_user){
+            $SQL="SELECT * FROM Usuarios WHERE id_usuario='$id_user'";
+            try {
+                $result = mysqli_query($this->connection, $SQL);
+                $row = mysqli_fetch_assoc($result);
+                return $row;
+            } catch (Exception $e) {
+                echo "Error al obtener el usuario: " . $e->getMessage();
+            }
+        }
         public function add_user($user){
             $email=$user->get_email();
             $password=$user->get_password();

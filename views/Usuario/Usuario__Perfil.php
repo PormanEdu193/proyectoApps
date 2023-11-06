@@ -29,7 +29,7 @@ if (empty($_SESSION['nombre_usuario'])) {
         $db = new Database();
         $connection = $db->connect();
         
-        $id = $_SESSION['id_usuario'];
+        $id = $_SESSION['id_socio'];
         $socio;
 
         $consulta = "SELECT * FROM Socios WHERE id_socio = '$id'";
@@ -101,7 +101,7 @@ if (empty($_SESSION['nombre_usuario'])) {
                                 </tr>
                                 <tr>
                                     <th>
-                                        Id usuario : <?php echo $socio->get_id_socio(); ?>
+                                        Id usuario : <?php echo $_SESSION['id_usuario'] ?>
                                     </th>
                                     <th class="datos__resto--idUsuario">
 

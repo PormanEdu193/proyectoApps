@@ -10,6 +10,13 @@
 <body>
     <div class="container">
       <div class="left">
+        <header>
+          <p>Ingresar como administrator</p>
+          <hr>
+                <div class="anchor">
+                    <a href="views/Administrador_login/index.php">Login Administrator</a>
+                  </div>
+        </header>
         <div class="login">
 
           <div class="title_login">

@@ -27,14 +27,14 @@ if (empty($_SESSION['id_usuario'])) {
         }
         
         if (isset($_GET['login_success']) && !$_SESSION['alert']) {
-            $idUsuario = $_SESSION['id_usuario'];
+            $nombre_usuario = $_SESSION['nombre'];
             echo "
                 <script>
                     new Noty({
                         type: 'success',
                         layout: 'topRight',
                         theme: 'metroui',
-                        text: '<p style=\"font-size:120%;\"><b>✅Inicio de sesión exítoso</b></p><p style=\"font-size:110%;\">Bienvenido admin: $idUsuario!</p>',
+                        text: '<p style=\"font-size:120%;\"><b>✅Inicio de sesión exítoso</b></p><p style=\"font-size:110%;\">Bienvenido admin: $nombre_usuario!</p>',
                         timeout: 2000,
                     }).show();
                 </script>"; 
@@ -57,13 +57,13 @@ if (empty($_SESSION['id_usuario'])) {
                     <img src="../../assets/images/Icono_3.png" alt="imagen Default Usuario" class="datosPersonales__imagen">
                     <div class="datosPersonales__datos">
                         <div class="datos__encabezado">
-                            <h3 class="datos__encabezado--nombre"><?php echo $_SESSION['id_usuario'] ?></h3>
+                            <h3 class="datos__encabezado--nombre"><?php echo $_SESSION['nombre'] ?></h3>
                         </div>
                         <div class="datos__resto">
                             <table>
                                 <tr>
                                     <th>
-                                        Cédula : <?php echo $_SESSION['id_usuario'] ?>
+                                        Cédula : <?php echo $_SESSION['identificacion'] ?>
                                     </th>
                                     <th class="datos__resto--cedula">
 
@@ -71,7 +71,7 @@ if (empty($_SESSION['id_usuario'])) {
                                 </tr>
                                 <tr>
                                     <th>
-                                        Telefono : 
+                                        Telefono : <?php echo $_SESSION['telefono'] ?>
                                     </th>
                                     <th class="datos__resto--telefono">
 
@@ -87,7 +87,7 @@ if (empty($_SESSION['id_usuario'])) {
                                 </tr>
                                 <tr>
                                     <th>
-                                        Id usuario : 
+                                        Id usuario : <?php echo $_SESSION['id_usuario'] ?>
                                     </th>
                                     <th class="datos__resto--idUsuario">
 
@@ -100,7 +100,7 @@ if (empty($_SESSION['id_usuario'])) {
             </div>
         </section>
         <section class="containerBotones">
-            <a href="Administrador__socios.php" class="botonAdministrador">
+            <a href="" class="botonAdministrador">
                 <h3 class="botonAdministrador__descripcion">Usuarios</h3>
                 <div class="botonAdministrador__imagen">
                     <img src="../../assets/images/Icono_1.png" alt="" class="botonAdministrador__imagen--imagen">

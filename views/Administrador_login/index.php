@@ -10,8 +10,14 @@
 <body>
     <div class="container">
       <div class="left">
+        <header>
+            <p>Ingresar como socio</p>
+            <hr>
+                <div class="anchor">
+                    <a href="../../index.php">Login Socio</a>
+                  </div>
+          </header>
         <div class="login">
-
           <div class="title_login">
             <h1>Login</h1>
             <hr>
