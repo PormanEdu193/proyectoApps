@@ -108,6 +108,13 @@ if (empty($_SESSION['id_usuario'])) {
                 
             </a>
             <a href="" class="botonAdministrador">
+                <h3 class="botonAdministrador__descripcion">Patrones</h3>
+                <div class="botonAdministrador__imagen">
+                    <img src="../../assets/images/Icono_1.png" alt="" class="botonAdministrador__imagen--imagen">
+                </div>
+                
+            </a>
+            <a href="" class="botonAdministrador">
                 <h3 class="botonAdministrador__descripcion">Barcos</h3>
                 <div class="botonAdministrador__imagen">
                     <img src="../../assets/images/Icono_2.png" alt="" class="botonAdministrador__imagen--imagen">
@@ -128,6 +135,7 @@ if (empty($_SESSION['id_usuario'])) {
                 </div>
                 
             </a>
+            
         </section>
     </main>
     <div class="capa" style="z-index: -1;"></div>
