@@ -5,6 +5,13 @@
             $this->connection=$connection;
         }
         
+        function get_patron($id_patron){
+            $SQL = "SELECT * FROM Patrones WHERE id_patron = '$id_patron'";
+            $result = mysqli_query($this->connection, $SQL);
+            $row = mysqli_fetch_array($result);
+            return $row;
+        }
+
         function get_patrones(){
             $SQL = "SELECT * FROM Patrones ";
             try{
@@ -34,6 +41,25 @@
             } catch (Exception $e) {
                 echo "Error al agregar el Patron: " . $e->getMessage();
             }
+        }
+
+        function actualizar_patron_bd($patron){
+            $name = $patron->get_nombre();
+            $identification = $patron->get_identificacion();
+            $adress = $patron->get_direccion();
+            $email = $patron->get_email();
+            $tel_number = $patron->get_telefono();
+            $id_patron = $patron->get_id_patron();
+
+            $consulta = "UPDATE Patrones SET nombre = '$name', identificacion = '$identification', telefono = '$tel_number', email = '$email', direccion = '$adress' WHERE id_patron = '$id_patron'";
+            $result = mysqli_query($this->connection, $consulta);
+            return $result;
+        }
+
+        function eliminar_patron_bd($id_patron){
+            $consulta = "DELETE FROM Patrones WHERE id_patron = '$id_patron'";
+            $result = mysqli_query($this->connection, $consulta);
+            return $result;
         }
     }
    
