@@ -18,12 +18,12 @@
     <header>
         <h1 class="header__Nombre">CLUB NÁUTICO ALBATROS</h1>
         <ul class="header__opciones">
-            <li><a href="../../includes/cerrar_session.php">Home</a></li>
-            <li><a href="../../includes/cerrar_session.php">Usuarios</a></li>
-            <li><a href="../../includes/cerrar_session.php">Patrones</a></li>
-            <li><a href="../../includes/cerrar_session.php">Barcos</a></li>
-            <li><a href="../../includes/cerrar_session.php">Salidas</a></li>
-            <li><a href="../../includes/cerrar_session.php">Administradores</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="Administrador__socios.php">Usuarios</a></li>
+            <li><a href="Administrador__Patrones.php">Patrones</a></li>
+            <li><a href="Administrador__Barcos.php">Barcos</a></li>
+            <li><a href="Administrador__Salidas.php">Salidas</a></li>
+            <li><a href="Administrador__Administradores.php">Administradores</a></li>
             <li><a href="../../includes/cerrar_session.php">Salir</a></li>
         </ul>   
     </header>

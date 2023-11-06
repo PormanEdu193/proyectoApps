@@ -15,15 +15,27 @@
     <title>Patrones</title>
 </head>
 <body>
+    <?php
+        include("../../config/database.php");
+        include("../../includes/patron_crud.php");
+
+        $db = new Database();
+        $connection = $db->connect();
+        $patron_crud = new PatronCrud($connection);
+
+        $patrones = $patron_crud->get_patrones() ;
+        
+
+    ?>
     <header>
         <h1 class="header__Nombre">CLUB NÁUTICO ALBATROS</h1>
         <ul class="header__opciones">
-        <li><a href="">Home</a></li>
-            <li><a href="">Usuarios</a></li>
-            <li><a href="">Patrones</a></li>
-            <li><a href="">Barcos</a></li>
-            <li><a href="">Salidas</a></li>
-            <li><a href="">Administradores</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="Administrador__socios.php">Usuarios</a></li>
+            <li><a href="Administrador__Patrones.php">Patrones</a></li>
+            <li><a href="Administrador__Barcos.php">Barcos</a></li>
+            <li><a href="Administrador__Salidas.php">Salidas</a></li>
+            <li><a href="Administrador__Administradores.php">Administradores</a></li>
             <li><a href="../../includes/cerrar_session.php">Salir</a></li>
         </ul>   
     </header>
@@ -34,7 +46,7 @@
                 <table>
                     <tbody>
                     <tr class="tablaDatosGrandes__filas">
-                        <th class="tablaDatosGrandes__columnas">Id usuario</th>
+                        <th class="tablaDatosGrandes__columnas">Id patron</th>
                         <th class="tablaDatosGrandes__columnas">Cedula</th>
                         <th class="tablaDatosGrandes__columnas">Nombre</th>
                         <th class="tablaDatosGrandes__columnas">Telefono</th>
@@ -42,6 +54,22 @@
                         <th class="tablaDatosGrandes__columnas">Email</th>
                         <th class="tablaDatosGrandes__columnas">Acciones</th>
                     </tr>
+                    <?php
+                        if (!empty($patrones)) {
+                            foreach ($patrones as $patron) {
+                                echo "<tr>";
+                                echo "<td>" . $patron['id_patron'] . "</td>";
+                                echo "<td>" . $patron['identificacion'] . "</td>";
+                                echo "<td>" . $patron['nombre'] . "</td>";
+                                echo "<td>" . $patron['telefono'] . "</td>";
+                                echo "<td>" . $patron['direccion'] . "</td>";
+                                echo "<td>" . $patron['email'] . "</td>";
+                                echo "</tr>";
+                            }
+                        } else {
+                            echo "No se encontraron socios.";
+                        }
+                    ?>
                     </tbody>
                 </table>
                 <a href="" class="boton">Agregar nuevo Patron</a>
