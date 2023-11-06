@@ -19,12 +19,7 @@
     <header>
         <h1 class="header__Nombre">CLUB NÁUTICO ALBATROS</h1>
         <ul class="header__opciones">
-            <li><a href="">Usuarios</a></li>
-            <li><a href="">Patrones</a></li>
-            <li><a href="">Barcos</a></li>
-            <li><a href="">Salidas</a></li>
-            <li><a href="">Administradores</a></li>
-            <li><a href="../../includes/cerrar_session.php">Salir</a></li>
+            <li><a href=".././Administrador__Patrones.php">Volver</a></li>
         </ul>
         
     </header>
@@ -35,10 +30,10 @@
                 <section class="datosPersonales" style="display:flex; justify-content:center;">                    
                     <div class="datosPersonales__datos">
                         <div class="datos__resto" style="gap:50px">
-                            <form action="procesar_edicion.php" method="post" style="gap: 20px; padding: 25px; display: flex; justify-content: center; flex-direction: column;">
+                            <form action=".././.././.././includes/procesar_agregar_patron.php" method="POST">
                                 <table>
                                     <tr>
-                                        <th>Id usuario : <input type="text" name="Id_usuario" value="" style="display:inline-block"></th>
+                                        <th>Id patron : <input type="text" name="Id_usuario" value="" style="display:inline-block"></th>
                                     </tr>
                                     <tr>
                                         <th>Cedula : <input type="text" name="Cedula" value="" style="display:inline-block"></th>
