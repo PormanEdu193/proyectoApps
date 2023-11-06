@@ -100,7 +100,7 @@ if (empty($_SESSION['id_usuario'])) {
             </div>
         </section>
         <section class="containerBotones">
-            <a href="" class="botonAdministrador">
+            <a href="Administrador__socios.php" class="botonAdministrador">
                 <h3 class="botonAdministrador__descripcion">Usuarios</h3>
                 <div class="botonAdministrador__imagen">
                     <img src="../../assets/images/Icono_1.png" alt="" class="botonAdministrador__imagen--imagen">
