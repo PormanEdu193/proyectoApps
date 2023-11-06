@@ -72,7 +72,7 @@
                     ?>
                     </tbody>
                 </table>
-                <a href="" class="boton">Agregar nuevo Patron</a>
+                <a href="Agregar/agregar_patrones.php" class="boton">Agregar nuevo Patron</a>
             </div>
         </section>
     </main>
