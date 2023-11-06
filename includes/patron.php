@@ -1,6 +1,5 @@
 <?php
-   
-    class Socio{
+    class Patron{
         private $id_patron;
         private $nombre;
         private $identificacion;
