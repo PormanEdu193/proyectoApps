@@ -64,6 +64,13 @@
                                 echo "<td>" . $patron['telefono'] . "</td>";
                                 echo "<td>" . $patron['direccion'] . "</td>";
                                 echo "<td>" . $patron['email'] . "</td>";
+                                ?>
+                                <td>
+                                <?php echo '<a href="Modificar/modificar_patrones.php?id='.$patron['id_patron'].'"><input type="button" value="Actualizar" class="botonUsuario"></a>'; ?>
+                                -
+                                <?php echo '<a href="../../includes/eliminar_patron.php?id='.$patron['id_patron'].'"><input type="button" value="Eliminar" class="botonUsuario"></a>'; ?>
+                                </td>
+                                <?php
                                 echo "</tr>";
                             }
                         } else {
