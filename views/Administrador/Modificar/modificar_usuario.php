@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (empty($_SESSION['id_usuario'])) {
+    header("location: ./.././.././../views/Administrador_login/index.php");   
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +22,15 @@
     <title>Modificar usuario</title>
 </head>
 <body>
+<?php 
+    include(".././.././.././includes/socio_crud.php");
+    include(".././.././.././config/database.php");
+    $db = new Database();
+    $connection = $db->connect();
+    $socio_crud = new SocioCrud($connection);
+    $id = $_GET['id'];
+    $socio = $socio_crud->get_socio($id);
+    ?>
     <header>
         <h1 class="header__Nombre">CLUB NÁUTICO ALBATROS</h1>
         <ul class="header__opciones">
@@ -35,7 +50,7 @@
                 <section class="datosPersonales" style="display:flex; justify-content:center;">                    
                     <div class="datosPersonales__datos">
                         <div class="datos__resto" style="gap:50px">
-                            <form action="procesar_edicion.php" method="post" style="gap: 20px; padding: 25px; display: flex; justify-content: center; flex-direction: column;">
+                            <form action=".././.././.././includes/actualizar_usuario.php" method="post" style="gap: 20px; padding: 25px; display: flex; justify-content: center; flex-direction: column;">
                                 <table>
                                     <tr>
                                         <th>Id usuario : <input type="text" name="Id_usuario" value="" style="display:inline-block"></th>

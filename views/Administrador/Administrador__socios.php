@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (empty($_SESSION['id_usuario'])) {
+    header("location: ./.././.././../views/Administrador_login/index.php");   
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,6 +72,13 @@
                                 echo "<td>" . $socio['telefono'] . "</td>";
                                 echo "<td>" . $socio['direccion'] . "</td>";
                                 echo "<td>" . $socio['email'] . "</td>";
+                                ?>
+                                <th class="tablaDatosGrandes__columnas">
+                                <?php echo '<a href="Modificar/modificar_usuario.php?id='.$socio['id_socio'].'"><input type="button" value="Actualizar" class="boton"></a>'; ?>
+                                -
+                                <?php echo '<a href="../../includes/eliminar_usuario.php?id='.$socio['id_socio'].'"><input type="button" value="Eliminar" class="boton"></a>'; ?>
+                                </td>
+                                <?php
                                 echo "</tr>";
                             }
                         } else {
@@ -74,11 +87,54 @@
                     ?>
                     </tbody>
                 </table>
-                <a href="agregar_usuario.php" class="boton">Agregar nuevo Socio</a>
+                <a href="Agregar/agregar_usuario.php" class="boton">Agregar nuevo Socio</a>
             </div>
         </section>
     </main>
     <div class="capa" style="z-index: -1;"></div>
+    <script src="../../assets/external/noty/noty.js"></script>
+    <?php 
+      if(isset($_GET['add_success'])){
+        $add_msg = $_GET['add_msg'];
+        echo "
+          <script>
+            new Noty({
+                type: 'success',
+                layout: 'topRight',
+                theme: 'metroui',
+                text: '$add_msg',
+                timeout: 2000,
+            }).show();
+          </script>"; 
+      }
+      if(isset($_GET['delete_alert'])){
+        $alert_msg = $_GET['alert_msg'];
+        echo "
+          <script>
+            new Noty({
+                type: 'warning',
+                layout: 'topRight',
+                theme: 'metroui',
+                text: '$alert_msg',
+                timeout: 2000,
+            }).show();
+          </script>"; 
+      }
+      if(isset($_GET['error'])){
+        $error_msg = $_GET['error_msg'];
+        echo "
+          <script>
+            new Noty({
+                type: 'error',
+                layout: 'topRight',
+                theme: 'metroui',
+                text: '$error_msg',
+                timeout: 2000,
+            }).show();
+          </script>"; 
+      }
+    ?>
+
 
 </body> 
 </html>

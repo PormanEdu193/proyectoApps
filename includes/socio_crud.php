@@ -54,6 +54,33 @@
                 echo "Error al agregar el socio: " . $e->getMessage();
             }
         }
+
+        function actualizar_usuario_bd($socio){
+            $name = $socio->get_nombre();
+            $identification = $socio->get_identificacion();
+            $adress = $socio->get_direccion();
+            $email = $socio->get_email();
+            $tel_number = $socio->get_telefono();
+            $id_socio = $socio->get_id_socio();
+
+            $consulta = "UPDATE socios SET nombre = '$name', identificacion = '$identification', telefono = '$tel_number', email = '$email', direccion = '$adress' WHERE id_socio = '$id_socio'";
+            try {
+                $result = mysqli_query($this->connection, $consulta);
+                return $result;
+            } catch (Exception $e) {
+                echo "Error al actualizar el Usuario: " . $e->getMessage();
+            }
+        }
+
+        function eliminar_usuario_bd($id_socio){
+            $consulta = "DELETE FROM socios WHERE id_socio = '$id_socio'";
+            try {
+                $result = mysqli_query($this->connection, $consulta);
+                return $result;
+            } catch (Exception $e) {
+                echo "Error al eliminar el Patron: " . $e->getMessage();
+            }
+        }
     }
    
 

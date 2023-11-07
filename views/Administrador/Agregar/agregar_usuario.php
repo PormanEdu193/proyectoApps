@@ -35,13 +35,10 @@
                 <section class="datosPersonales" style="display:flex; justify-content:center;">                    
                     <div class="datosPersonales__datos">
                         <div class="datos__resto" style="gap:50px">
-                            <form action="procesar_edicion.php" method="post" style="gap: 20px; padding: 25px; display: flex; justify-content: center; flex-direction: column;">
+                            <form action=".././.././.././includes/procesar_agregar_usuario.php" method="post" style="gap: 20px; padding: 25px; display: flex; justify-content: center; flex-direction: column;">
                                 <table>
                                     <tr>
-                                        <th>Id usuario : <input type="text" name="Id_usuario" value="" style="display:inline-block"></th>
-                                    </tr>
-                                    <tr>
-                                        <th>Cedula : <input type="text" name="Cedula" value="" style="display:inline-block"></th>
+                                        <th>Cedula : <input type="text" name="identificacion" value="" style="display:inline-block"></th>
                                     </tr>
                                     <tr>
                                         <th>Nombre : <input type="text" name="nombre" value="" style="display:inline-block"></th>
