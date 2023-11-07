@@ -52,14 +52,22 @@
             $id_patron = $patron->get_id_patron();
 
             $consulta = "UPDATE Patrones SET nombre = '$name', identificacion = '$identification', telefono = '$tel_number', email = '$email', direccion = '$adress' WHERE id_patron = '$id_patron'";
-            $result = mysqli_query($this->connection, $consulta);
-            return $result;
+            try {
+                $result = mysqli_query($this->connection, $consulta);
+                return $result;
+            } catch (Exception $e) {
+                echo "Error al actualizar el Patron: " . $e->getMessage();
+            }
         }
 
         function eliminar_patron_bd($id_patron){
             $consulta = "DELETE FROM Patrones WHERE id_patron = '$id_patron'";
-            $result = mysqli_query($this->connection, $consulta);
-            return $result;
+            try {
+                $result = mysqli_query($this->connection, $consulta);
+                return $result;
+            } catch (Exception $e) {
+                echo "Error al eliminar el Patron: " . $e->getMessage();
+            }
         }
     }
    

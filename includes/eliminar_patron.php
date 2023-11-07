@@ -10,9 +10,11 @@ $patron_crud = new PatronCrud($connection);
 $id = $_GET['id'];
 
 if ($patron_crud->eliminar_patron_bd($id)) {
-    header("location: ../views/Administrador/Administrador__Patrones.php");
+    $msg="Patron eliminado correctamente";
+    header("location: ../views/Administrador/Administrador__Patrones.php?delete_alert=true&alert_msg=$msg");
 } else {
-    echo "Error al Eliminar los datos.";
+    $error_msg="Error al Eliminar los datos.";
+    header("location: ../views/Administrador/Administrador__Patrones.php?error=true&error_msg=$error_msg");
 }
 
 ?>

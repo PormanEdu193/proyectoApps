@@ -17,9 +17,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $patronAux = new Patron($id,$nombre,$identificacion,$direccion,$email,$telefono);
     if ($patron_crud->actualizar_patron_bd($patronAux)) {
-        header("location: ../views/Administrador/Administrador__Patrones.php");
+        $add_msg="Patron actualizado correctamente";
+        header("location: ../views/Administrador/Administrador__Patrones.php?add_success=true&add_msg=$add_msg");
     } else {
-        echo "Error al actualizar los datos.";
+        $error_msg="Error al actualizar los datos.";
+        header("location: ../views/Administrador/Administrador__Patrones.php?error=true&error_msg=$error_msg");
     }
 }
 ?>
