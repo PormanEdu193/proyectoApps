@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (empty($_SESSION['id_usuario'])) {
+    header("location: ./.././../views/Administrador_login/index.php");   
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +21,14 @@
     <title>Barcos</title>
 </head>
 <body>
+    <?php
+        include("../../config/database.php");
+        include("../../includes/barco_crud.php");
+        $db = new Database();
+        $connection = $db->connect();
+        $barco_crud = new BarcoCrud($connection);
+        $barcos = $barco_crud->get_barcos() ;
+    ?>
     <header>
         <h1 class="header__Nombre">CLUB NÁUTICO ALBATROS</h1>
         <ul class="header__opciones">
@@ -42,13 +56,77 @@
                         <th class="tablaDatosGrandes__columnas">Cuota a pagar</th>
                         <th class="tablaDatosGrandes__columnas">Acciones</th>
                     </tr>
+                    <?php
+                        if (!empty($barcos)) {
+                            foreach ($barcos as $barco) {
+                                echo "<tr>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $barco['id_barco'] . "</td>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $barco['id_socio'] . "</td>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $barco['matricula'] . "</td>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $barco['nombre_barco'] . "</td>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $barco['numero_amarre'] . "</td>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $barco['cuota'] . "</td>";
+                                ?>
+                                <th class="tablaDatosGrandes__columnas">
+                                <?php echo '<a href="Modificar/modificar_barco.php?id='.$barco['id_barco'].'"><input type="button" value="Actualizar" class="boton"></a>'; ?>
+                                -
+                                <?php echo '<a href="../../includes/eliminar_barco.php?id='.$barco['id_barco'].'"><input type="button" value="Eliminar" class="boton"></a>'; ?>
+                                </td>
+                                <?php
+                                echo "</tr>";
+                            }
+                        } else {
+                            echo "No se encontraron barcos.";
+                        }
+                    ?>
                     </tbody>
                 </table>
-                <a href="" class="boton">Agregar nuevo Barco</a>
+                <a href="Agregar/agregar_barco.php" class="boton">Agregar nuevo Barco</a>
             </div>
         </section>
     </main>
     <div class="capa" style="z-index: -1;"></div>
-
+    <script src="../../assets/external/noty/noty.js"></script>
+    <?php 
+      if(isset($_GET['add_success'])){
+        $add_msg = $_GET['add_msg'];
+        echo "
+          <script>
+            new Noty({
+                type: 'success',
+                layout: 'topRight',
+                theme: 'metroui',
+                text: '$add_msg',
+                timeout: 2000,
+            }).show();
+          </script>"; 
+      }
+      if(isset($_GET['delete_alert'])){
+        $alert_msg = $_GET['alert_msg'];
+        echo "
+          <script>
+            new Noty({
+                type: 'warning',
+                layout: 'topRight',
+                theme: 'metroui',
+                text: '$alert_msg',
+                timeout: 2000,
+            }).show();
+          </script>"; 
+      }
+      if(isset($_GET['error'])){
+        $error_msg = $_GET['error_msg'];
+        echo "
+          <script>
+            new Noty({
+                type: 'error',
+                layout: 'topRight',
+                theme: 'metroui',
+                text: '$error_msg',
+                timeout: 2000,
+            }).show();
+          </script>"; 
+      }
+    ?>
 </body> 
 </html>
