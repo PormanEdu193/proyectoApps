@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (empty($_SESSION['id_usuario'])) {
-    header("location: ./.././.././../views/Administrador_login/index.php");   
+    header("location: ./.././../views/Administrador_login/index.php");   
 }
 ?>
 <!DOCTYPE html>
@@ -66,12 +66,12 @@ if (empty($_SESSION['id_usuario'])) {
                         if (!empty($socios)) {
                             foreach ($socios as $socio) {
                                 echo "<tr>";
-                                echo "<td>" . $socio['id_socio'] . "</td>";
-                                echo "<td>" . $socio['identificacion'] . "</td>";
-                                echo "<td>" . $socio['nombre'] . "</td>";
-                                echo "<td>" . $socio['telefono'] . "</td>";
-                                echo "<td>" . $socio['direccion'] . "</td>";
-                                echo "<td>" . $socio['email'] . "</td>";
+                                echo "<td class='tablaDatosGrandes__columnas'>" . $socio['id_socio'] . "</td>";
+                                echo "<td class='tablaDatosGrandes__columnas'>" . $socio['identificacion'] . "</td>";
+                                echo "<td class='tablaDatosGrandes__columnas'>" . $socio['nombre'] . "</td>";
+                                echo "<td class='tablaDatosGrandes__columnas'>" . $socio['telefono'] . "</td>";
+                                echo "<td class='tablaDatosGrandes__columnas'>" . $socio['direccion'] . "</td>";
+                                echo "<td class='tablaDatosGrandes__columnas'>" . $socio['email'] . "</td>";
                                 ?>
                                 <th class="tablaDatosGrandes__columnas">
                                 <?php echo '<a href="Modificar/modificar_usuario.php?id='.$socio['id_socio'].'"><input type="button" value="Actualizar" class="boton"></a>'; ?>

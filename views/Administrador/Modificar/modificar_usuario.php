@@ -34,12 +34,7 @@ if (empty($_SESSION['id_usuario'])) {
     <header>
         <h1 class="header__Nombre">CLUB NÁUTICO ALBATROS</h1>
         <ul class="header__opciones">
-            <li><a href="">Usuarios</a></li>
-            <li><a href="">Patrones</a></li>
-            <li><a href="">Barcos</a></li>
-            <li><a href="">Salidas</a></li>
-            <li><a href="">Administradores</a></li>
-            <li><a href="../../includes/cerrar_session.php">Salir</a></li>
+            <li><a href=".././Administrador__socios.php">Volver</a></li>
         </ul>
         
     </header>
@@ -53,22 +48,22 @@ if (empty($_SESSION['id_usuario'])) {
                             <form action=".././.././.././includes/actualizar_usuario.php" method="post" style="gap: 20px; padding: 25px; display: flex; justify-content: center; flex-direction: column;">
                                 <table>
                                     <tr>
-                                        <th>Id usuario : <input type="text" name="Id_usuario" value="" style="display:inline-block"></th>
+                                        <th>Id usuario : <input type="text" name="Id_usuario" value=<?php echo $socio['id_socio']; ?> style="display:inline-block"></th>
                                     </tr>
                                     <tr>
-                                        <th>Cedula : <input type="text" name="Cedula" value="" style="display:inline-block"></th>
+                                        <th>Cedula : <input type="text" name="Cedula" value=<?php echo $socio['identificacion']; ?> style="display:inline-block"></th>
                                     </tr>
                                     <tr>
-                                        <th>Nombre : <input type="text" name="nombre" value="" style="display:inline-block"></th>
+                                        <th>Nombre : <input type="text" name="nombre" value=<?php echo $socio['nombre']; ?> style="display:inline-block"></th>
                                     </tr>
                                     <tr>
-                                        <th>Telefono : <input type="text" name="telefono" value="" style="display:inline-block"></th>
+                                        <th>Telefono : <input type="text" name="telefono" value=<?php echo $socio['telefono']; ?> style="display:inline-block"></th>
                                     </tr>
                                     <tr>
-                                        <th>Email : <input type="text" name="email" value="" style="display:inline-block"></th>
+                                        <th>Email : <input type="text" name="email" value=<?php echo $socio['email']; ?> style="display:inline-block"></th>
                                     </tr>
                                     <tr>
-                                        <th>Direccion : <input type="text" name="direccion" value="" style="display:inline-block"></th>
+                                        <th>Direccion : <input type="text" name="direccion" value=<?php echo $socio['direccion']; ?> style="display:inline-block"></th>
                                     </tr>
                                 </table>
                                 <input class="boton" type="submit" value="Modificar socio">

@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (empty($_SESSION['id_usuario'])) {
+    header("location: ./.././.././../views/Administrador_login/index.php");   
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,12 +25,7 @@
     <header>
         <h1 class="header__Nombre">CLUB NÁUTICO ALBATROS</h1>
         <ul class="header__opciones">
-            <li><a href="">Usuarios</a></li>
-            <li><a href="">Patrones</a></li>
-            <li><a href="">Barcos</a></li>
-            <li><a href="">Salidas</a></li>
-            <li><a href="">Administradores</a></li>
-            <li><a href="../../includes/cerrar_session.php">Salir</a></li>
+            <li><a href=".././Administrador__socios.php">Volver</a></li>
         </ul>
         
     </header>

@@ -21,9 +21,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $socio->set_id_socio($id_socio);
 
     if ($socio_crud->add_socio($socio)) {
-        header("location: ../views/Administrador/administrador__socios.php");
+        $add_msg="Usuario agregado correctamente";
+        header("location: ../views/Administrador/administrador__socios.php?add_success=true&add_msg=$add_msg");
     } else {
-        echo "Error al actualizar los datos.";
+        $error_msg="Error al agregar los datos.";
+        header("location: ../views/Administrador/administrador__socios.php?error=true&error_msg=$error_msg");
     }
 }
 ?>

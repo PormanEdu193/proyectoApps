@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (empty($_SESSION['id_usuario'])) {
-    header("location: ./.././../views/Administrador_login/index.php");   
+    header("location: ./../Administrador_login/index.php");   
 }
 ?>
 <!DOCTYPE html>
