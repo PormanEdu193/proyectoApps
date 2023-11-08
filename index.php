@@ -51,7 +51,7 @@
         </form>
         <div class="login_footer">
           <p>¿Olvidaste tu contraseña?</p>
-          <a href="#">Click aquí</a>
+          <a href="views/Reestablecer_contraseña/index.php">Click aquí</a>
       </div>
       </div>
 

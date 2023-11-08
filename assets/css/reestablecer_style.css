@@ -1,0 +1,115 @@
+@import url(Variables/variables.css);
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--fuente-Alata);
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center ;
+    justify-content: center;
+    background-color: #ffffff;
+}
+
+.form_body{
+    width: 40%;
+    height: 70%;
+    border: solid 1px azure;
+    border-radius: 50px 10px 50px 10px;
+    background-color: #1f4272d7;
+    color: azure;
+}
+
+.image img {
+    width: 25%;
+    height: 30%;
+}
+
+.title_form{
+    text-align: center;
+    margin-top: 15px;
+}
+
+form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.input{
+    width: 80%;
+    height: 40%;
+    margin: 10px 0;
+    padding: 0 10px;
+}
+
+.input input{
+    width: 100%;
+    border: solid 1px black;
+    border-radius: 5px;
+    outline: none;
+    padding:10px;
+    margin-top: 10px;
+    transition: all 0.5s;
+    transform: translateY(2px);
+    background-color: #e0dbdbc9;
+}
+
+.button_enviar{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button_enviar button{
+    width: 50%;
+    height: 100%;
+    border: solid 1px azure;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #184b54af;
+    color: azure;
+    transition: all 0.5s;
+    transform: translateY(-2px); 
+}
+
+hr{
+    margin-top: 5px;
+    color: azure;
+}
+
+::placeholder{
+    color: #363535;
+    font-size: 12px;
+}
+
+.input input:focus {
+    border-radius: 20px;
+    transform: scaleY(0.95);
+    border: solid 0.5px #192655;
+}
+
+.txt:hover {
+    border-color: rgba(240, 255, 255, 0.3);
+}
+
+button:hover{
+    background-color: #3218548c;
+    cursor: pointer;
+    border: solid 1px azure;
+    border-radius: 10px;
+}
+button:active {
+    transform: scaleY(1);
+}

@@ -1,16 +1,12 @@
 <?php 
     include("socio_crud.php");
     include("socio.php");
-    include("admin.php");
-    include("admin_crud.php");
     include("usuario.php");
     include("usuario_crud.php");
     class Verify{
         private $connection;
         private $socio;
-        private $admin;
         private $socio_crud;
-        private $admin_crud;
 
         private $usuario_crud;
         private $usuario;
@@ -18,9 +14,7 @@
             $this->connection=$connection;
             $this->socio_crud= new SocioCrud($this->connection);
             $this->socio= new Socio();
-            $this->admin= new Admin();
             $this->usuario = new Usuario();
-            $this->admin_crud= new AdminCrud($this->connection);
             $this->usuario_crud = new UsuarioCrud($this->connection);
         }
         function verify_login_socio($username, $password){
@@ -114,14 +108,10 @@
        public function get_socio_instance(){
               return $this->socio;
        }
-       public function get_admin_instance(){
-            return $this->admin;
-       }
+
         public function get_usuario_instance(){
             return $this->usuario;
         }
 
     }
-   
-
 ?>
