@@ -74,9 +74,9 @@ if (empty($_SESSION['id_usuario'])) {
                                 echo "<td class='tablaDatosGrandes__columnas'>" . $socio['email'] . "</td>";
                                 ?>
                                 <th class="tablaDatosGrandes__columnas">
-                                <?php echo '<a href="Modificar/modificar_usuario.php?id='.$socio['id_socio'].'"><input type="button" value="Actualizar" class="boton"></a>'; ?>
+                                <?php echo '<a href="Modificar/modificar_usuario.php?id='.$socio['id_socio'].'"><input type="button" value="Actualizar" class="boton" style="padding:2px; display:inline-block;"></a>'; ?>
                                 -
-                                <?php echo '<a href="../../includes/eliminar_usuario.php?id='.$socio['id_socio'].'"><input type="button" value="Eliminar" class="boton"></a>'; ?>
+                                <?php echo '<a href="../../includes/eliminar_usuario.php?id='.$socio['id_socio'].'"><input type="button" value="Eliminar" class="boton" style="padding:2px; display:inline-block;"></a>'; ?>
                                 </td>
                                 <?php
                                 echo "</tr>";

@@ -68,9 +68,9 @@ if (empty($_SESSION['id_usuario'])) {
                                 echo "<th class='tablaDatosGrandes__columnas'>" . $barco['cuota'] . "</td>";
                                 ?>
                                 <th class="tablaDatosGrandes__columnas">
-                                <?php echo '<a href="Modificar/modificar_barco.php?id='.$barco['id_barco'].'"><input type="button" value="Actualizar" class="boton"></a>'; ?>
+                                <?php echo '<a href="Modificar/modificar_barco.php?id='.$barco['id_barco'].'"><input type="button" value="Actualizar" class="boton" style="padding:2px; display:inline-block;"></a>'; ?>
                                 -
-                                <?php echo '<a href="../../includes/eliminar_barco.php?id='.$barco['id_barco'].'"><input type="button" value="Eliminar" class="boton"></a>'; ?>
+                                <?php echo '<a href="../../includes/eliminar_barco.php?id='.$barco['id_barco'].'"><input type="button" value="Eliminar" class="boton" style="padding:2px; display:inline-block;"></a>'; ?>
                                 </td>
                                 <?php
                                 echo "</tr>";
