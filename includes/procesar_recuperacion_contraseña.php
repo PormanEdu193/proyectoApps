@@ -3,9 +3,9 @@
     include("../config/database.php");
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
-    require './PHPMailer/src/Exception.php';
-    require './PHPMailer/src/PHPMailer.php';
-    require './PHPMailer/src/SMTP.php';
+    require '../assets/external/PHPMailer/src/Exception.php';
+    require '../assets/external/PHPMailer/src/PHPMailer.php';
+    require '../assets/external/PHPMailer/src/SMTP.php';
 
     $database = new DataBase();
     $connection = $database->connect();
