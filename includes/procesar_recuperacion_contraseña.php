@@ -1,6 +1,7 @@
 <?php
     include("verificar_login_registro.php");
     include("../config/database.php");
+    include("usuario_crud.php");
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
     require './PHPMailer/src/Exception.php';
@@ -10,6 +11,7 @@
     $database = new DataBase();
     $connection = $database->connect();
     $verify = new Verify($connection);
+    $usuario_crud = new UsuarioCrud($connection);
 
     if($_SERVER["REQUEST_METHOD"]=="POST"){
         $email = $_POST["email"];
@@ -31,7 +33,13 @@
     
                 $mail->isHTML(true);
                 $mail->Subject = 'Recuperacion contrasena';
-                $mail->Body = 'Tu codigo de recuperacion es XXXXX';
+
+                if($usuario_crud->get_user($email)){
+                    $password = $usuario_crud->get_user($email)['contraseña'];
+                }else{
+                    echo("Error consulta");
+                }
+                $mail->Body = 'Tu contrasena es :'.$password;
     
                 $mail->send();
                 header("Location: ../index.php");

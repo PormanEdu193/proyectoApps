@@ -6,8 +6,8 @@
             $this->connection=$connection;
         }
         
-        public function get_user($id_user){
-            $SQL="SELECT * FROM Usuarios WHERE id_usuario='$id_user'";
+        public function get_user($id_user=null,$email=null){
+            $SQL="SELECT * FROM Usuarios WHERE id_usuario='$id_user' OR email='$email'";
             try {
                 $result = mysqli_query($this->connection, $SQL);
                 $row = mysqli_fetch_assoc($result);
