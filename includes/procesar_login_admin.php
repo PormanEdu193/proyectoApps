@@ -22,6 +22,7 @@
                     $_SESSION['id_usuario'] = $usuario->get_id();
                     $_SESSION['telefono'] = $admin->get_telefono();
                     $_SESSION['identificacion'] = $admin->get_identificacion();
+                    $_SESSION['id_socio'] = $admin->get_id_socio();
 
                     $_SESSION['alert'] = false ;
                     header("Location: ../views/Administrador/index.php?login_success=true");

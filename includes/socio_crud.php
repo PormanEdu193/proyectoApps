@@ -13,6 +13,7 @@
                 return $row;
             }catch(Exception $e){
                 echo "Error al consultar el socio: " . $e->getMessage();
+                return false;
             }
             
             
@@ -29,13 +30,21 @@
                 return $socios;
             }catch(Exception $e){
                 echo "Error al consultar el socio: " . $e->getMessage();
+                return false;
             }
         }
 
         function update_socio($identificacion, $telefono, $email, $direccion, $nombre,$id){
             $consulta = "UPDATE Socios SET nombre = '$nombre', identificacion = '$identificacion', telefono = '$telefono', email = '$email', direccion = '$direccion' WHERE id_socio = '$id'";
-            $result = mysqli_query($this->connection, $consulta);
-            return $result;
+            try{
+                $result = mysqli_query($this->connection, $consulta);
+                echo"Socio Actualizado : ";
+                return $result;
+            }catch(Exception $e){
+                echo "Error al actualizar el socio: " . $e->getMessage();
+                return false;
+            }
+          
         }
 
         function add_socio($socio){
@@ -52,6 +61,7 @@
                 return $result;
             } catch (Exception $e) {
                 echo "Error al agregar el socio: " . $e->getMessage();
+                return false;
             }
         }
 
@@ -69,6 +79,7 @@
                 return $result;
             } catch (Exception $e) {
                 echo "Error al actualizar el Usuario: " . $e->getMessage();
+                return false;
             }
         }
 
@@ -79,6 +90,7 @@
                 return $result;
             } catch (Exception $e) {
                 echo "Error al eliminar el Patron: " . $e->getMessage();
+                return false;
             }
         }
     }

@@ -93,6 +93,15 @@ if (empty($_SESSION['id_usuario'])) {
 
                                     </th>                            
                                 </tr>
+                                <tr>
+                                    <th>
+                                        Id socio : <?php echo $_SESSION['id_socio'] ?>
+                                    </th>
+                                    <th class="datos__resto--idUsuario">
+
+                                    </th>                            
+                                </tr>
+                                
                             </table>
                         </div>
                     </div>

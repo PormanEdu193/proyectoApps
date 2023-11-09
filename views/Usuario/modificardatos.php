@@ -1,9 +1,15 @@
 <?php
-session_start();
-if (empty($_SESSION['nombre_usuario'])) {
-    header("location: ./.././../index.php");
-    
-}
+   include("./.././../includes/socio_crud.php");
+   include("./.././../includes/socio.php");
+   include("./.././../config/database.php");
+   session_start();
+   
+    $db = new Database();
+    $connection = $db->connect();
+    $id = $_SESSION['id_socio'];
+    $socio_crud = new SocioCrud($connection);
+    $socio_info = $socio_crud->get_socio($id);
+    $socio = new Socio($socio_info['id_socio'], $socio_info['nombre'], $socio_info['identificacion'], $socio_info['direccion'], $socio_info['email'], $socio_info['telefono']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,28 +28,6 @@ if (empty($_SESSION['nombre_usuario'])) {
     <title>Perfil</title>
 </head>
 <body>
-    <?php
-        include("./.././../includes/socio_crud.php");
-        include("./.././../includes/socio.php");
-        include("./.././../config/database.php");
-        $db = new Database();
-        $connection = $db->connect();
-        
-        $id = $_SESSION['id_usuario'];
-        $socio;
-
-        $consulta = "SELECT * FROM Socios WHERE id_socio = '$id'";
-        $result = mysqli_query($connection, $consulta);
-        if($result->num_rows==1){
-            $row = $result->fetch_assoc();
-            $id_socio = $row['id_socio'];
-            $socio_crud = new SocioCrud($connection);
-            $socio_info = $socio_crud->get_socio($id_socio);
-            $socio = new Socio($socio_info['id_socio'], $socio_info['nombre'], $socio_info['identificacion'], $socio_info['direccion'], $socio_info['email'], $socio_info['telefono']); 
-            
-        }
-
-    ?>
     <header>
         <h1 class="header__Nombre">CLUB NÁUTICO ALBATROS</h1>
         <ul class="header__opciones">
@@ -56,43 +40,27 @@ if (empty($_SESSION['nombre_usuario'])) {
         
     </header>
     <main>
-    <section class="PanelContenido">
-            <div class="PanelContenido__encabezado"><h3>Editar Datos Personales</h3></div>
+        <section class="PanelContenido">
+            <div class="PanelContenido__encabezado"><h3>Modificar Datos</h3></div>
             <div class="PanelContenido__contenido">
-                <section class="datosPersonales" style="display:flex; justify-content:center;">                    
                     <div class="datosPersonales__datos">
-                        <div class="datos__resto" style="gap:50px">
-                            <form action="procesar_edicion.php" method="post" style="gap: 20px; padding: 25px; display: flex; justify-content: center; flex-direction: column;">
-                                <table>
-                                    <tr>
-                                        <th>Nombre : <input type="text" name="nombre" value="<?php echo $socio->get_nombre(); ?>" style="display:inline-block"></th>
-                                    </tr>
-                                    <tr>
-                                        <th>Cédula : <input type="text" name="identificacion" value="<?php echo $socio->get_identificacion(); ?>" style="display:inline-block"></th>
-                                    </tr>
-                                    <tr>
-                                        <th>Telefono : <input type="text" name="telefono" value="<?php echo $socio->get_telefono(); ?>" style="display:inline-block"></th>
-                                    </tr>
-                                    <tr>
-                                        <th>Email : <input type="text" name="email" value="<?php echo $socio->get_email(); ?>" style="display:inline-block"></th>
-                                    </tr>
-                                    <tr>
-                                        <th>Direccion : <input type="text" name="direccion" value="<?php echo $socio->get_direccion(); ?>" style="display:inline-block"></th>
-                                    </tr>
-                                    <tr>
-                                        <th>Id usuario : <?php echo $socio->get_id_socio(); ?></th>
-                                    </tr>
-                                </table>
-                                <input class="boton" type="submit" value="Guardar Cambios">
-                            </form>
-                        </div>
+                        <form style="color: black;" action="../../includes/procesar_edicion.php" method="POST">
+                            <label for="">Nombre:</label>
+                            <input type="text" name="nombre" id="nombre" value="<?php echo $socio->get_nombre();?>">
+                            <label for="identificacion">Identificación:</label>
+                            <input type="text" name="identificacion" id="identificacion" value="<?php echo $socio->get_identificacion();?>">
+                            <label for="direccion">Dirección:</label>
+                            <input type="text" name="direccion" id="direccion" value="<?php echo $socio->get_direccion();?>">
+                            <label for="email">Email:</label>
+                            <input type="email" name="email" id="email" value="<?php echo $socio->get_email();?>">
+                            <label for="telefono">Teléfono:</label>
+                            <input type="number" name="telefono" id="telefono" value="<?php echo $socio->get_telefono();?>">
+                            <input class="boton" type="submit" value="Enviar">
+                        </form> 
                     </div>
-                </section>
-
             </div>
         </section>
     </main>
     <div class="capa"></div>
-
 </body>
 </html>

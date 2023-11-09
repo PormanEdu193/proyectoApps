@@ -107,6 +107,13 @@ if (empty($_SESSION['nombre_usuario'])) {
 
                                     </th>                            
                                 </tr>
+                                <tr>
+                                    <th>
+                                        Id Socio : <?php echo $socio->get_id_socio(); ?>
+                                    </th>
+                                    <th class="datos__resto--idUsuario">
+                                    </th>                            
+                                </tr>
                             </table>
                         </div>
                     </div>

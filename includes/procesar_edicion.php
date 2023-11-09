@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $connection = $db->connect();
     $socio_crud = new SocioCrud($connection);
 
-    $id = $_SESSION['id_usuario'];
+    $id = $_SESSION['id_socio'];
     $identificacion = $_POST['identificacion'];
     $telefono = $_POST['telefono'];
     $email = $_POST['email'];
@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($socio_crud->update_socio($identificacion,$telefono,$email,$direccion,$nombre,$id)) {
         header("location: ../views/Usuario/Usuario__Perfil.php");
     } else {
-        echo "Error al actualizar los datos.";
+        echo "Error al actualizar los datos";
     }
 }
 ?>
