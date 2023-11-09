@@ -36,7 +36,7 @@ if (empty($_SESSION['id_usuario'])) {
                 <section class="datosPersonales" style="display:flex; justify-content:center;">                    
                     <div class="datosPersonales__datos">
                         <div class="datos__resto" style="gap:50px">
-                            <form action=".././.././.././includes/procesar_agregar_usuario.php" method="post" style="gap: 20px; padding: 25px; display: flex; justify-content: center; flex-direction: column;">
+                            <form action="../../../includes/procesar_agregar_usuario.php" method="post" style="gap: 20px; padding: 25px; display: flex; justify-content: center; flex-direction: column;">
                                 <table>
                                     <tr>
                                         <th>Cedula : <input type="text" name="identificacion" value="" style="display:inline-block"></th>

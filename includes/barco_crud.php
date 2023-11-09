@@ -33,7 +33,7 @@
             $nombre = $barco->get_nombre_barco();
             $amarre = $barco->get_numero_amarre();
             $cuota = $barco->get_cuota();
-            $SQL = "INSERT INTO barcos (id_barco, matricula, nombre_barco, numero_amarre, cuota, id_socio) VALUES ('$id','$matricula', '$nombre', '$amarre', '$cuota', '$id_socio')";
+            $SQL = "INSERT INTO Barcos (id_barco, matricula, nombre_barco, numero_amarre, cuota, id_socio) VALUES ('$id','$matricula', '$nombre', '$amarre', '$cuota', '$id_socio')";
             try {
                 $result = mysqli_query($this->connection, $SQL);
                 echo "Barco agregado con éxito.";

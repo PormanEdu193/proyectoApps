@@ -63,7 +63,7 @@
             $tel_number = $socio->get_telefono();
             $id_socio = $socio->get_id_socio();
 
-            $consulta = "UPDATE socios SET nombre = '$name', identificacion = '$identification', telefono = '$tel_number', email = '$email', direccion = '$adress' WHERE id_socio = '$id_socio'";
+            $consulta = "UPDATE Socios SET nombre = '$name', identificacion = '$identification', telefono = '$tel_number', email = '$email', direccion = '$adress' WHERE id_socio = '$id_socio'";
             try {
                 $result = mysqli_query($this->connection, $consulta);
                 return $result;
@@ -73,7 +73,7 @@
         }
 
         function eliminar_usuario_bd($id_socio){
-            $consulta = "DELETE FROM socios WHERE id_socio = '$id_socio'";
+            $consulta = "DELETE FROM Socios WHERE id_socio = '$id_socio'";
             try {
                 $result = mysqli_query($this->connection, $consulta);
                 return $result;
