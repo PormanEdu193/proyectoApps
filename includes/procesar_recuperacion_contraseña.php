@@ -1,7 +1,6 @@
 <?php
     include("verificar_login_registro.php");
     include("../config/database.php");
-    include("usuario_crud.php");
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
     require './PHPMailer/src/Exception.php';
@@ -34,15 +33,16 @@
                 $mail->isHTML(true);
                 $mail->Subject = 'Recuperacion contrasena';
 
-                if($usuario_crud->get_user($email)){
-                    $password = $usuario_crud->get_user($email)['contraseña'];
+                if($usuario_crud->get_user(null,$email)){
+                    $password = $usuario_crud->get_user(null,$email)['contraseña'];
+                    print_r($result);
+                    $mail->Body = 'Tu contrasena es :'.$password;
+                    $mail->send();
+                    header("Location: ../index.php");
                 }else{
                     echo("Error consulta");
                 }
-                $mail->Body = 'Tu contrasena es :'.$password;
-    
-                $mail->send();
-                header("Location: ../index.php");
+                
             }catch (Exception $e) {
                 echo "Error al enviar el correo: {$mail->ErrorInfo}";
             }
