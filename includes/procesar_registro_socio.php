@@ -27,7 +27,8 @@
             exit();
             
         }else{
-            echo "Existe";
+            $error_msg="Error el usuario ya existe en la base de datos.";
+            header("location: ../index.php?login_error=true&error_msg=$error_msg");
         }
     }
 ?>

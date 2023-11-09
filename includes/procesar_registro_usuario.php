@@ -27,10 +27,12 @@
           $socio_usuarios = new SocioUsuarios($socio->get_id_socio(),$user->get_id());
           $socio_usuarios_crud = new SocioUsuariosCrud($connection);
           $socio_usuarios_crud->add_socio_usuario($socio_usuarios);
-          header("Location: ../index.php");
+          $add_msg="Usuario agregado correctamente";
+            header("location: ../index.php?add_success=true&add_msg=$add_msg");
           exit();
        }else{
-          echo "Existe";
+          $error_msg="Error el usuario ya existe en la base de datos.";
+            header("location: ../index.php?login_error=true&error_msg=$error_msg");
           exit();
        }
     }else{

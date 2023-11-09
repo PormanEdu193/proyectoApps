@@ -105,6 +105,19 @@
             }).show();
           </script>"; 
       }
+      if(isset($_GET['add_success'])){
+        $add_msg = $_GET['add_msg'];
+        echo "
+          <script>
+            new Noty({
+                type: 'success',
+                layout: 'topRight',
+                theme: 'metroui',
+                text: '$add_msg',
+                timeout: 2000,
+            }).show();
+          </script>"; 
+      }
     ?>
 </body>
 </html> 
