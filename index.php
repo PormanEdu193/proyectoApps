@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/css/style_login.css">
   <link href="assets/external/noty/noty.css" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <title>Login</title>
 </head>
 <body>
@@ -36,14 +37,37 @@
               <input type="email" name="email" id="email" placeholder="Ingrese Correo electrónico">
             </div>
 
-            <div class="input">
+            <div class="input" id="pass">
               <div>
                 <p>Contraseña</p>
                 <hr>
               </div>
               <input type="password" name="password" id="password" placeholder="Ingrese Contraseña">
+              <i class='bx bx-show-alt'></i>
             </div>
-
+              <style>
+                  .bx {
+                    font-size: 30px;
+                    transform: translateX(150px);
+                    cursor: pointer;
+                  }
+              </style>
+              <script>
+                const pass =document.getElementById('password');
+                const icon = document.querySelector('.bx');
+                icon.addEventListener('click', function(e) {
+                  if (pass.type == 'password'){
+                      pass.type = 'text';
+                      icon.classList.remove('bx-show-alt');
+                      icon.classList.add('bxs-hide');
+                    }else{
+                      pass.type = 'password';
+                      icon.classList.add('bx-show-alt');
+                      icon.classList.remove('bxs-hide');
+                    }
+                });
+                
+              </script>
             <div class="button_login">
                 <button class="button" type="submit" name="login" id="login">Ingresar</button>
             </div>
