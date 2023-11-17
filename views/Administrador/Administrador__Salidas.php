@@ -21,6 +21,18 @@ if (empty($_SESSION['id_usuario'])) {
     <title>Salidas</title>
 </head>
 <body>
+    <?php
+        include("../../config/database.php");
+        include("../../includes/salidas_crud.php");
+
+        $db = new Database();
+        $connection = $db->connect();
+        $salida_crud = new SalidasCrud($connection);
+
+        $salidas = $salida_crud->get_salidas() ;
+        
+
+    ?>
     <header>
         <h1 class="header__Nombre">CLUB NÁUTICO ALBATROS</h1>
         <ul class="header__opciones">
@@ -48,9 +60,32 @@ if (empty($_SESSION['id_usuario'])) {
                         <th class="tablaDatosGrandes__columnas">Destino</th>
                         <th class="tablaDatosGrandes__columnas">Acciones</th>
                     </tr>
+                    <?php
+                        if (!empty($salidas)) {
+                            foreach ($salidas as $salida) {
+                                echo "<tr>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $salida['id_salida'] . "</td>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $salida['id_barco'] . "</td>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $salida['id_patron'] . "</td>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $salida['fecha_salida'] . "</td>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $salida['hora_salida'] . "</td>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $salida['destino'] . "</td>";
+                                ?>
+                                <th class="tablaDatosGrandes__columnas">
+                                <?php echo '<a href="Modificar/modificar_salida.php?id='.$salida['id_salida'].'"><input type="button" value="Actualizar" class="boton" style="padding:2px; display:inline-block;"></a>'; ?>
+                                -
+                                <?php echo '<a href="../../includes/?id='.$salida['id_salida'].'"><input type="button" value="Eliminar" class="boton" style="padding:2px; display:inline-block;"></a>'; ?>
+                                </td>
+                                <?php
+                                echo "</tr>";
+                            }
+                        } else {
+                            echo "No se encontraron socios.";
+                        }
+                    ?>
                     </tbody>
                 </table>
-                <a href="" class="boton">Agregar nueva Salida</a>
+                <a href="Agregar/agregar_salida.php" class="boton">Agregar nueva Salida</a>
             </div>
         </section>
     </main>
