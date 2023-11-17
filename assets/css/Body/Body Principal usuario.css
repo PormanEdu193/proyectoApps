@@ -6,7 +6,13 @@ body{
     z-index: 99;
     padding: 1.5625rem 3rem 1.625rem 3.0625rem;
     border: 10px solid #ffffff;
+
+    opacity: 0; 
+    transition: opacity 1.5s ease-in-out; /* Agrega transición de 1 segundo con efecto ease-in-out */
+    overflow: hidden; 
 }
 .logoContainer img{
     width: 18.75rem;
+    transform: scale(0.1); /* Escala la imagen al 10% para empezar pequeña */
+    transition: transform 3.5s ease-in-out; 
 }

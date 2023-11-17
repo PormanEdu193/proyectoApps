@@ -21,3 +21,7 @@ header{
     font-size: 1.25em;
     z-index: 99;
 }
+.header__opciones li:hover{
+    color: red;
+    font-weight: 600;
+}

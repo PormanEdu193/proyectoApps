@@ -30,11 +30,12 @@ if (empty($_SESSION['nombre_usuario'])) {
     </header>
     <main>
         <div class="logoContainer">
-            <img src="../../assets/images/ship_white.png" alt="Silueta de un barco">
+            <img src="../../assets/images/ship_white.png" alt="Silueta de un barco" class="logoContainer__imagen">
         </div>
     </main>
     <div class="capa"></div>
     <script src="../../assets/external/noty/noty.js"></script>
+    <script src="../../assets/js/AnimacionCuadro.js"></script>
     <?php
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
