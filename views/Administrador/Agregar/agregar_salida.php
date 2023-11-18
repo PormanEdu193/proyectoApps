@@ -42,10 +42,10 @@ if (empty($_SESSION['id_usuario'])) {
                                         <th>Id salida : <input type="text" name="Id_salida" value="" style="display:inline-block"></th>
                                     </tr>
                                     <tr>
-                                        <th>Fecha : <input type="text" name="fecha" value="" style="display:inline-block"></th>
+                                        <th>Fecha : <input type="date" name="fecha" value="" style="display:inline-block"></th>
                                     </tr>
                                     <tr>
-                                        <th>Hora : <input type="text" name="hora" value="" style="display:inline-block"></th>
+                                        <th>Hora : <input type="time" name="hora" value="" style="display:inline-block"></th>
                                     </tr>
                                     <tr>
                                         <th>Destino : <input type="text" name="destino" value="" style="display:inline-block"></th>

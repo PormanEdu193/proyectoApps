@@ -51,10 +51,10 @@ if (empty($_SESSION['id_usuario'])) {
                                         <th>Id salida : <input type="text" name="Id_salida" value=<?php echo $salida['id_salida']; ?> style="display:inline-block" readonly></th>
                                     </tr>
                                     <tr>
-                                        <th>Fecha : <input type="text" name="fecha" value=<?php echo $salida['fecha_salida']; ?> style="display:inline-block"></th>
+                                        <th>Fecha : <input type="date" name="fecha" value=<?php echo $salida['fecha_salida']; ?> style="display:inline-block"></th>
                                     </tr>
                                     <tr>
-                                        <th>Hora : <input type="text" name="hora" value=<?php echo $salida['hora_salida']; ?> style="display:inline-block"></th>
+                                        <th>Hora : <input type="time" name="hora" value=<?php echo $salida['hora_salida']; ?> style="display:inline-block"></th>
                                     </tr>
                                     <tr>
                                         <th>Destino : <input type="text" name="destino" value=<?php echo $salida['destino']; ?> style="display:inline-block"></th>
