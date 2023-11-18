@@ -22,51 +22,41 @@
                 }
                 return $patrones;
             }catch(Exception $e){
-                echo "Error al consultar el socio: " . $e->getMessage();
+                echo "Error al consultar la salida: " . $e->getMessage();
             }
         }
 
-        function agregar_patron_bd($patron){
-            $name = $patron->get_nombre();
-            $identification = $patron->get_identificacion();
-            $adress = $patron->get_direccion();
-            $email = $patron->get_email();
-            $tel_number = $patron->get_telefono();
-            $id_patron = $patron->get_id_patron();
-            $SQL = "INSERT INTO Patrones (id_patron,nombre, identificacion, direccion, email, telefono) VALUES ('$id_patron','$name', '$identification', '$adress', '$email', '$tel_number')";
+        function agregar_salida_bd($salida){
+            $Id_salida = $salida->get_id_salida();
+            $fecha = $salida->get_fecha();
+            $hora = $salida->get_hora();
+            $destino = $salida->get_destino();
+            $id_barco = $salida->get_id_barco();
+            $id_patron = $salida->get_id_patron();
+            $SQL = "INSERT INTO Salidas (id_salida,fecha_salida, hora_salida, destino, id_barco, id_patron) VALUES ('$Id_salida','$fecha', '$hora', '$destino', '$id_barco', '$id_patron')";
             try {
                 $result = mysqli_query($this->connection, $SQL);
-                echo "Patron agregado con éxito.";
+                echo "Salida agregado con éxito.";
                 return $result;
             } catch (Exception $e) {
-                echo "Error al agregar el Patron: " . $e->getMessage();
+                echo "Error al agregar la Salida: " . $e->getMessage();
             }
         }
 
-        function actualizar_patron_bd($patron){
-            $name = $patron->get_nombre();
-            $identification = $patron->get_identificacion();
-            $adress = $patron->get_direccion();
-            $email = $patron->get_email();
-            $tel_number = $patron->get_telefono();
-            $id_patron = $patron->get_id_patron();
+        function actualizar_salida_bd($salida){
+            $Id_salida = $salida->get_id_salida();
+            $fecha = $salida->get_fecha();
+            $hora = $salida->get_hora();
+            $destino = $salida->get_destino();
+            $id_barco = $salida->get_id_barco();
+            $id_patron = $salida->get_id_patron();
 
-            $consulta = "UPDATE Patrones SET nombre = '$name', identificacion = '$identification', telefono = '$tel_number', email = '$email', direccion = '$adress' WHERE id_patron = '$id_patron'";
+            $consulta = "UPDATE Salidas SET fecha_salida = '$fecha', hora_salida = '$hora', destino = '$destino', id_barco = '$id_barco', id_patron = '$id_patron' WHERE id_salida = '$Id_salida'";
             try {
                 $result = mysqli_query($this->connection, $consulta);
                 return $result;
             } catch (Exception $e) {
-                echo "Error al actualizar el Patron: " . $e->getMessage();
-            }
-        }
-
-        function eliminar_patron_bd($id_patron){
-            $consulta = "DELETE FROM Patrones WHERE id_patron = '$id_patron'";
-            try {
-                $result = mysqli_query($this->connection, $consulta);
-                return $result;
-            } catch (Exception $e) {
-                echo "Error al eliminar el Patron: " . $e->getMessage();
+                echo "Error al actualizar la Salida: " . $e->getMessage();
             }
         }
     }

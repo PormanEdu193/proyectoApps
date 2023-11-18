@@ -90,6 +90,47 @@ if (empty($_SESSION['id_usuario'])) {
         </section>
     </main>
     <div class="capa" style="z-index: -1;"></div>
-
+    <script src="../../assets/external/noty/noty.js"></script>
+    <?php 
+      if(isset($_GET['add_success'])){
+        $add_msg = $_GET['add_msg'];
+        echo "
+          <script>
+            new Noty({
+                type: 'success',
+                layout: 'topRight',
+                theme: 'metroui',
+                text: '$add_msg',
+                timeout: 2000,
+            }).show();
+          </script>"; 
+      }
+      if(isset($_GET['delete_alert'])){
+        $alert_msg = $_GET['alert_msg'];
+        echo "
+          <script>
+            new Noty({
+                type: 'warning',
+                layout: 'topRight',
+                theme: 'metroui',
+                text: '$alert_msg',
+                timeout: 2000,
+            }).show();
+          </script>"; 
+      }
+      if(isset($_GET['error'])){
+        $error_msg = $_GET['error_msg'];
+        echo "
+          <script>
+            new Noty({
+                type: 'error',
+                layout: 'topRight',
+                theme: 'metroui',
+                text: '$error_msg',
+                timeout: 2000,
+            }).show();
+          </script>"; 
+      }
+    ?>
 </body> 
 </html>

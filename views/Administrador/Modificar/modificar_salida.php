@@ -34,7 +34,7 @@ if (empty($_SESSION['id_usuario'])) {
     <header>
         <h1 class="header__Nombre">CLUB NÁUTICO ALBATROS</h1>
         <ul class="header__opciones">
-            <li><a href=".././Administrador__Patrones.php">Volver</a></li>
+            <li><a href=".././Administrador__Salidas.php">Volver</a></li>
         </ul>
         
     </header>
@@ -45,7 +45,8 @@ if (empty($_SESSION['id_usuario'])) {
                 <section class="datosPersonales" style="display:flex; justify-content:center;">                    
                     <div class="datosPersonales__datos">
                         <div class="datos__resto" style="gap:50px">
-                            <form action=".././.././.././includes/actualizar_patron.php" method="POST">                                <table>
+                            <form action=".././.././.././includes/actualizar_salida.php" method="POST">                                
+                                <table>
                                     <tr>
                                         <th>Id salida : <input type="text" name="Id_salida" value=<?php echo $salida['id_salida']; ?> style="display:inline-block" readonly></th>
                                     </tr>
