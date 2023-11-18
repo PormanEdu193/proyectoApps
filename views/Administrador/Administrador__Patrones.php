@@ -80,7 +80,7 @@ if (empty($_SESSION['id_usuario'])) {
                                 echo "</tr>";
                             }
                         } else {
-                            echo "No se encontraron socios.";
+                            echo "No se encontraron patrones.";
                         }
                     ?>
                     </tbody>

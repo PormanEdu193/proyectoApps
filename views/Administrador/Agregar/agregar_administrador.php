@@ -25,7 +25,7 @@ if (empty($_SESSION['id_usuario'])) {
     <header>
         <h1 class="header__Nombre">CLUB NÁUTICO ALBATROS</h1>
         <ul class="header__opciones">
-            <li><a href=".././Administrador__Patrones.php">Volver</a></li>
+            <li><a href=".././Administrador__Administradores.php">Volver</a></li>
         </ul>
         
     </header>

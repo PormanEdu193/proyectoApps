@@ -30,5 +30,25 @@
                 echo "Error al agregar el socio: " . $e->getMessage();
             }
         }
+
+        function get_users(){
+            $SQL = "SELECT u.id_usuario, s.identificacion, s.nombre, s.telefono, s.direccion, u.email, u.rol
+            FROM usuarios AS u INNER JOIN socios_usuarios AS su
+            ON (u.id_usuario = su.id_usuario)
+            INNER JOIN socios AS s
+            ON (su.id_socio = s.id_socio)
+            WHERE u.rol = 'Administrador'";
+            try{
+                $result = mysqli_query($this->connection, $SQL);
+                $socios = array();
+                while ($row = mysqli_fetch_array($result)) {
+                    $socios[] = $row;
+                }
+                return $socios;
+            }catch(Exception $e){
+                echo "Error al consultar el socio: " . $e->getMessage();
+                return false;
+            }
+        }
     }
 ?>

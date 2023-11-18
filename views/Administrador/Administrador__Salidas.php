@@ -29,9 +29,7 @@ if (empty($_SESSION['id_usuario'])) {
         $connection = $db->connect();
         $salida_crud = new SalidasCrud($connection);
 
-        $salidas = $salida_crud->get_salidas() ;
-        
-
+        $salidas = $salida_crud->get_salidas();
     ?>
     <header>
         <h1 class="header__Nombre">CLUB NÁUTICO ALBATROS</h1>
@@ -80,7 +78,7 @@ if (empty($_SESSION['id_usuario'])) {
                                 echo "</tr>";
                             }
                         } else {
-                            echo "No se encontraron socios.";
+                            echo "No se encontraron salidas.";
                         }
                     ?>
                     </tbody>

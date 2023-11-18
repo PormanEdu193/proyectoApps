@@ -22,19 +22,21 @@ if (empty($_SESSION['id_usuario'])) {
     <title>Modificar patron</title>
 </head>
 <body>
-<?php 
-    include(".././.././.././includes/patron_crud.php");
+    <?php 
+    include(".././.././.././includes/socio_crud.php");
+    include(".././.././.././includes/socio.php");
     include(".././.././.././config/database.php");
     $db = new Database();
     $connection = $db->connect();
-    $patron_crud = new PatronCrud($connection);
+    $socio_crud = new SocioCrud($connection);
     $id = $_GET['id'];
-    $patron = $patron_crud->get_patron($id);
+    $socio_info = $socio_crud->get_socio($id);
+    $socio = new Socio($socio_info['id_socio'], $socio_info['nombre'], $socio_info['identificacion'], $socio_info['direccion'], $socio_info['email'], $socio_info['telefono']);
     ?>
     <header>
         <h1 class="header__Nombre">CLUB NÁUTICO ALBATROS</h1>
         <ul class="header__opciones">
-            <li><a href=".././Administrador__Patrones.php">Volver</a></li>
+            <li><a href=".././Administrador__Administradores.php">Volver</a></li>
         </ul>
         
     </header>
@@ -45,24 +47,25 @@ if (empty($_SESSION['id_usuario'])) {
                 <section class="datosPersonales" style="display:flex; justify-content:center;">                    
                     <div class="datosPersonales__datos">
                         <div class="datos__resto" style="gap:50px">
-                            <form action=".././.././.././includes/actualizar_patron.php" method="POST">                                <table>
+                            <form action=".././.././.././includes/actualizar_admin.php" method="POST">                                
+                                <table>
                                     <tr>
-                                        <th>Id usuario : <input type="text" name="Id_usuario" value=<?php echo $patron['id_patron']; ?> style="display:inline-block" readonly></th>
+                                        <th>Id usuario : <input type="text" name="Id_usuario" value=<?php echo $socio->get_id_socio(); ?> style="display:inline-block" readonly></th>
                                     </tr>
                                     <tr>
-                                        <th>Cedula : <input type="text" name="Cedula" value=<?php echo $patron['identificacion']; ?> style="display:inline-block"></th>
+                                        <th>Cedula : <input type="text" name="Cedula" value=<?php echo $socio->get_identificacion(); ?> style="display:inline-block"></th>
                                     </tr>
                                     <tr>
-                                        <th>Nombre : <input type="text" name="nombre" value=<?php echo $patron['nombre']; ?> style="display:inline-block"></th>
+                                        <th>Nombre : <input type="text" name="nombre" value=<?php echo $socio->get_nombre(); ?> style="display:inline-block"></th>
                                     </tr>
                                     <tr>
-                                        <th>Telefono : <input type="text" name="telefono" value=<?php echo $patron['telefono']; ?> style="display:inline-block"></th>
+                                        <th>Telefono : <input type="text" name="telefono" value=<?php echo $socio->get_telefono(); ?> style="display:inline-block"></th>
                                     </tr>
                                     <tr>
-                                        <th>Email : <input type="text" name="email" value=<?php echo $patron['email']; ?> style="display:inline-block"></th>
+                                        <th>Email : <input type="text" name="email" value=<?php echo $socio->get_email(); ?> style="display:inline-block"></th>
                                     </tr>
                                     <tr>
-                                        <th>Direccion : <input type="text" name="direccion" value=<?php echo $patron['direccion']; ?> style="display:inline-block"></th>
+                                        <th>Direccion : <input type="text" name="direccion" value=<?php echo $socio->get_direccion(); ?> style="display:inline-block"></th>
                                     </tr>
                                 </table>
                                 <input class="boton" type="submit" value="Modificar patron">
