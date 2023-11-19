@@ -148,6 +148,6 @@ if (empty($_SESSION['id_usuario'])) {
         </section>
     </main>
     <div class="capa" style="z-index: -1;"></div>
-    
+    <script src="../../assets/js/AnimacionBotonesAdmin.js"></script>
 </body> 
 </html>
