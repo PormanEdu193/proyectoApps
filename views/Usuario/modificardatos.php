@@ -45,10 +45,10 @@
             <div class="PanelContenido__contenido">
                     <div class="datosPersonales__datos">
                         <form style="color: black;" action="../../includes/procesar_edicion.php" method="POST">
-                            <label for="">Nombre:</label>
-                            <input type="text" name="nombre" id="nombre" value="<?php echo $socio->get_nombre();?>">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text"  disabled="disabled" name="nombre" id="nombre" value="<?php echo $socio->get_nombre();?>">
                             <label for="identificacion">Identificación:</label>
-                            <input type="text" name="identificacion" id="identificacion" value="<?php echo $socio->get_identificacion();?>">
+                            <input type="text" disabled="disabled" name="identificacion" id="identificacion" value="<?php echo $socio->get_identificacion();?>">
                             <label for="direccion">Dirección:</label>
                             <input type="text" name="direccion" id="direccion" value="<?php echo $socio->get_direccion();?>">
                             <label for="email">Email:</label>

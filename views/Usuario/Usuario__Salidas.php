@@ -22,10 +22,15 @@ if (empty($_SESSION['nombre_usuario'])) {
 <body>
     <?php
         include("./.././../includes/salidas.php");
+        include("./.././../includes/salidas_crud.php");
         include("./.././../config/database.php");
         $db = new Database();
         $connection = $db->connect();
         $id = $_SESSION['id_usuario'];
+        $salida_crud = new SalidaCrud($connection);
+        $salidas = $salida_crud->get_salidas() ;
+
+        /*
         $listaSalidas = array();
 
         $consulta = "SELECT Salidas.id_salida, Salidas.fecha_salida, Salidas.hora_salida,Salidas.destino, Salidas.id_barco, Salidas.id_patron 
@@ -39,17 +44,12 @@ if (empty($_SESSION['nombre_usuario'])) {
                 array_push($listaSalidas, $salida);
             }
         }
+        */
     ?>
     <header>
         <h1 class="header__Nombre">CLUB NÁUTICO ALBATROS</h1>
         <ul class="header__opciones">
-            <li><a href="index.php">home</a></li>
-            <li><a href="Usuario__Perfil.php">perfil</a></li>
-            <li><a href="Usuario__barcos.php">barcos</a></li>
-            <li><a href="Usuario__Salidas.php">historial de salidas</a></li>
-            <li><a href="../../includes/cerrar_session.php">salir</a></li>
-        </ul>
-        
+            <li><a href="index.php">volver</a></li>
     </header>
     <main>
         <section class="PanelContenido">
@@ -64,19 +64,22 @@ if (empty($_SESSION['nombre_usuario'])) {
                         <th class="tablaDatosGrandes__columnas">Fecha</th>
                         <th class="tablaDatosGrandes__columnas">Hora</th>
                         <th class="tablaDatosGrandes__columnas">Destino</th>
+                        
                     </tr>
                     <?php
-                        foreach ($listaSalidas as $salida) {
-                            ?>
-                            <tr class="tablaDatosGrandes__filas">
-                                <th class="tablaDatosGrandes__columnas"><?php echo $salida->get_id_salida(); ?></th>
-                                <th class="tablaDatosGrandes__columnas"><?php echo $salida->get_id_barco(); ?></th>
-                                <th class="tablaDatosGrandes__columnas"><?php echo $salida->get_id_patron(); ?></th>
-                                <th class="tablaDatosGrandes__columnas"><?php echo $salida->get_fecha(); ?></th>
-                                <th class="tablaDatosGrandes__columnas"><?php echo $salida->get_hora(); ?></th>
-                                <th class="tablaDatosGrandes__columnas"><?php echo $salida->get_destino(); ?></th>
-                            </tr>
-                            <?php
+                        if (!empty($salidas)) {
+                            foreach ($salidas as $salida) {
+                                echo "<tr>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $salida['id_salida'] . "</td>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $salida['id_barco'] . "</td>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $salida['id_patron'] . "</td>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $salida['fecha_salida'] . "</td>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $salida['hora_salida'] . "</td>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $salida['destino'] . "</td>";
+                                echo "</tr>";
+                            }
+                        } else {
+                            echo "No se encontraron barcos.";
                         }
                     ?>
                     </tbody>

@@ -24,28 +24,17 @@ if (empty($_SESSION['nombre_usuario'])) {
     <?php
         include("./.././../includes/barco.php");
         include("./.././../config/database.php");
+        include("../../includes/barco_crud.php");
         $db = new Database();
         $connection = $db->connect();
         $id = $_SESSION['id_usuario'];
-        $listaBarcos = array();
-
-        $consulta = "SELECT * FROM Barcos WHERE id_socio = '$id'";
-        $result = mysqli_query($connection, $consulta);
-        if($result){
-            while($row = $result->fetch_array()){
-                $barco = new Barco($row['id_barco'], $row['matricula'], $row['nombre_barco'], $row['numero_amarre'], $row['cuota'] ,$row['id_socio']);
-                array_push($listaBarcos, $barco);
-            }
-        }
+        $barco_crud = new BarcoCrud($connection);
+        $barcos = $barco_crud->get_barcos() ;
     ?>
     <header>
         <h1 class="header__Nombre">CLUB NÁUTICO ALBATROS</h1>
         <ul class="header__opciones">
-            <li><a href="index.php">home</a></li>
-            <li><a href="Usuario__Perfil.php">perfil</a></li>
-            <li><a href="Usuario__barcos.php">barcos</a></li>
-            <li><a href="Usuario__Salidas.php">historial de salidas</a></li>
-            <li><a href="../../includes/cerrar_session.php">salir</a></li>
+            <li><a href="index.php">volver</a></li>
         </ul>
         
     </header>
@@ -61,27 +50,29 @@ if (empty($_SESSION['nombre_usuario'])) {
                         <th class="tablaDatosGrandes__columnas">Número de matrícula</th>
                         <th class="tablaDatosGrandes__columnas">Nombre</th>
                         <th class="tablaDatosGrandes__columnas">Número de amarre</th>
-                        <th class="tablaDatosGrandes__columnas">Coutas pagadas</th>
+                        <th class="tablaDatosGrandes__columnas">Cuota</th>
+                        
                     </tr>
                     
-                        <?php
-                            foreach ($listaBarcos as $barco) {
-                                ?>
-                                <tr class="tablaDatosGrandes__filas">
-                                    <th class="tablaDatosGrandes__columnas"><?php echo $barco->get_id_barco(); ?></th>
-                                    <th class="tablaDatosGrandes__columnas"><?php echo $barco->get_id_socio(); ?></th>
-                                    <th class="tablaDatosGrandes__columnas"><?php echo $barco->get_matricula(); ?></th>
-                                    <th class="tablaDatosGrandes__columnas"><?php echo $barco->get_nombre_barco(); ?></th>
-                                    <th class="tablaDatosGrandes__columnas"><?php echo $barco->get_numero_amarre(); ?></th>
-                                    <th class="tablaDatosGrandes__columnas"><?php echo $barco->get_cuota(); ?></th>
-                                </tr>
-                                <?php
+                    <?php
+                        if (!empty($barcos)) {
+                            foreach ($barcos as $barco) {
+                                echo "<tr>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $barco['id_barco'] . "</td>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $barco['id_socio'] . "</td>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $barco['matricula'] . "</td>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $barco['nombre_barco'] . "</td>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $barco['numero_amarre'] . "</td>";
+                                echo "<th class='tablaDatosGrandes__columnas'>" . $barco['cuota'] . "</td>";
+                                echo "</tr>";
                             }
-                        ?>
+                        } else {
+                            echo "No se encontraron barcos.";
+                        }
+                    ?>
                     
                     </tbody>
                 </table>
-                
             </div>
         </section>
     </main>
