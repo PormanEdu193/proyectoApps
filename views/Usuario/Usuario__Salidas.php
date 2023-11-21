@@ -27,7 +27,7 @@ if (empty($_SESSION['nombre_usuario'])) {
         $db = new Database();
         $connection = $db->connect();
         $id = $_SESSION['id_usuario'];
-        $salida_crud = new SalidaCrud($connection);
+        $salida_crud = new SalidasCrud($connection);
         $salidas = $salida_crud->get_salidas() ;
 
         /*
