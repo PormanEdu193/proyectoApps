@@ -31,11 +31,7 @@
     <header>
         <h1 class="header__Nombre">CLUB NÁUTICO ALBATROS</h1>
         <ul class="header__opciones">
-            <li><a href="index.php">home</a></li>
-            <li><a href="Usuario__Perfil.php">perfil</a></li>
-            <li><a href="Usuario__barcos.php">barcos</a></li>
-            <li><a href="Usuario__Salidas.php">historial de salidas</a></li>
-            <li><a href="../../includes/cerrar_session.php">salir</a></li>
+            <li><a href="index.php">volver</a></li>
         </ul>
         
     </header>
