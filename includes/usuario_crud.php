@@ -32,7 +32,7 @@
         }
 
         function get_users(){
-            $SQL = "SELECT u.id_usuario, s.identificacion, s.nombre, s.telefono, s.direccion, u.email, u.rol
+            $SQL = "SELECT u.id_usuario 'id_usuario', s.id_socio 'id', s.identificacion, s.nombre, s.telefono, s.direccion, u.email, u.rol
             FROM usuarios AS u INNER JOIN socios_usuarios AS su
             ON (u.id_usuario = su.id_usuario)
             INNER JOIN socios AS s
@@ -48,6 +48,21 @@
             }catch(Exception $e){
                 echo "Error al consultar el socio: " . $e->getMessage();
                 return false;
+            }
+        }
+
+        function actualizar_usuario($usuario){
+            $id = $usuario->get_id();
+            $email = $usuario->get_email();
+            $password = $usuario->get_password();
+            $rol = $usuario->get_rol();
+
+            $consulta = "UPDATE Usuarios SET email = '$email', contraseña = '$password' WHERE id_usuario = '$id'";
+            try {
+                $result = mysqli_query($this->connection, $consulta);
+                return $result;
+            } catch (Exception $e) {
+                echo "Error al actualizar el Usario: " . $e->getMessage();
             }
         }
     }

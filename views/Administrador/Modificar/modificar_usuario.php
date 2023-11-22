@@ -22,7 +22,7 @@ if (empty($_SESSION['id_usuario'])) {
     <title>Modificar usuario</title>
 </head>
 <body>
-<?php 
+    <?php 
     include(".././.././.././includes/socio_crud.php");
     include(".././.././.././config/database.php");
     $db = new Database();

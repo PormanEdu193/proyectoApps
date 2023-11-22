@@ -16,6 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $telefono = $_POST['telefono'];
 
     $patronAux = new Patron($id,$nombre,$identificacion,$direccion,$email,$telefono);
+    $idPatron=substr($patronAux->get_nombre(), 0, 3) . substr($patronAux->get_identificacion(), -3);
+    $patronAux->set_id_patron($idPatron);
     if ($patron_crud->agregar_patron_bd($patronAux)) {
         $add_msg="Patron agregado correctamente";
         header("location: ../views/Administrador/Administrador__Patrones.php?add_success=true&add_msg=$add_msg");

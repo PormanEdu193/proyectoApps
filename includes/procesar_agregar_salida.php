@@ -16,6 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_patron = $_POST['id_patron'];
 
     $salidaAux = new Salida($Id_salida,$fecha,$hora,$destino,$id_barco,$id_patron);
+    $idSalida=substr($salidaAux->get_destino(), 0, 3) . substr($salidaAux->get_hora(), -3);
+    $salidaAux->set_id_salida($idSalida);
     if ($salida_crud->agregar_salida_bd($salidaAux)) {
         $add_msg="Su salida fue agregada correctamente";
         header("location: ../views/Administrador/Administrador__Salidas.php?add_success=true&add_msg=$add_msg");

@@ -26,12 +26,19 @@ if (empty($_SESSION['id_usuario'])) {
     include(".././.././.././includes/socio_crud.php");
     include(".././.././.././includes/socio.php");
     include(".././.././.././config/database.php");
+    include(".././.././.././includes/usuario.php");
+    include(".././.././.././includes/usuario_crud.php");
     $db = new Database();
     $connection = $db->connect();
     $socio_crud = new SocioCrud($connection);
     $id = $_GET['id'];
     $socio_info = $socio_crud->get_socio($id);
     $socio = new Socio($socio_info['id_socio'], $socio_info['nombre'], $socio_info['identificacion'], $socio_info['direccion'], $socio_info['email'], $socio_info['telefono']);
+    
+    $usuario_crud = new UsuarioCrud($connection);
+    $id_usuario = $_GET['id_usuario'];
+    $usuario_info = $usuario_crud->get_user($id_usuario, null);
+    $usuario = new Usuario($usuario_info['id_usuario'], $usuario_info['email'], $usuario_info['contraseña'], $usuario_info['rol']);
     ?>
     <header>
         <h1 class="header__Nombre">CLUB NÁUTICO ALBATROS</h1>
@@ -47,8 +54,9 @@ if (empty($_SESSION['id_usuario'])) {
                 <section class="datosPersonales" style="display:flex; justify-content:center;">                    
                     <div class="datosPersonales__datos">
                         <div class="datos__resto" style="gap:50px">
-                            <form action=".././.././.././includes/actualizar_admin.php" method="POST">                                
+                            <form action=".././.././.././includes/actualizar_admin.php" method="POST">        
                                 <table>
+                                    <th align="center">Datos personales:</th>
                                     <tr>
                                         <th>Id usuario : <input type="text" name="Id_usuario" value=<?php echo $socio->get_id_socio(); ?> style="display:inline-block" readonly></th>
                                     </tr>
@@ -66,6 +74,19 @@ if (empty($_SESSION['id_usuario'])) {
                                     </tr>
                                     <tr>
                                         <th>Direccion : <input type="text" name="direccion" value=<?php echo $socio->get_direccion(); ?> style="display:inline-block"></th>
+                                    </tr>
+                                    <th align="center">Usario:</th>
+                                    <tr>
+                                        <th>Id : <input type="text" name="Id" value=<?php echo $usuario->get_id(); ?> style="display:inline-block" readonly></th>
+                                    </tr>
+                                    <tr>
+                                        <th>email : <input type="text" name="email" value=<?php echo $usuario->get_email(); ?> style="display:inline-block"></th>
+                                    </tr>
+                                    <tr>
+                                        <th>contraseña : <input type="text" name="contraseña" value=<?php echo $usuario->get_password(); ?> style="display:inline-block"></th>
+                                    </tr>
+                                    <tr>
+                                        <th>rol : <input type="text" name="rol" value=<?php echo $usuario->get_rol(); ?> style="display:inline-block" readonly></th>
                                     </tr>
                                 </table>
                                 <input class="boton" type="submit" value="Modificar patron">

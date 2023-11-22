@@ -36,13 +36,14 @@ if (empty($_SESSION['id_usuario'])) {
                 <section class="datosPersonales" style="display:flex; justify-content:center;">                    
                     <div class="datosPersonales__datos">
                         <div class="datos__resto" style="gap:50px">
-                            <form action=".././.././.././includes/procesar_agregar_patron.php" method="POST">
+                            <form action=".././.././.././includes/procesar_agregar_admin.php" method="POST">
                                 <table>
+                                    <th align="center">Datos personales:</th>
                                     <tr>
-                                        <th>Id patron : <input type="text" name="Id_usuario" value="" style="display:inline-block"></th>
+                                        <th>Id : <input type="text" name="Id_usuario" value="" style="display:inline-block"></th>
                                     </tr>
                                     <tr>
-                                        <th>Cedula : <input type="text" name="Cedula" value="" style="display:inline-block"></th>
+                                        <th>Cedula : <input type="text" name="identificacion" value="" style="display:inline-block"></th>
                                     </tr>
                                     <tr>
                                         <th>Nombre : <input type="text" name="nombre" value="" style="display:inline-block"></th>
@@ -55,6 +56,19 @@ if (empty($_SESSION['id_usuario'])) {
                                     </tr>
                                     <tr>
                                         <th>Direccion : <input type="text" name="direccion" value="" style="display:inline-block"></th>
+                                    </tr>
+                                    <th align="center">Usario:</th>
+                                    <tr>
+                                        <th>Id usuario : <input type="text" name="Id" value="" style="display:inline-block"></th>
+                                    </tr>
+                                    <tr>
+                                        <th>email : <input type="text" name="email" value="" style="display:inline-block"></th>
+                                    </tr>
+                                    <tr>
+                                        <th>contraseña : <input type="text" name="contraseña" value="" style="display:inline-block"></th>
+                                    </tr>
+                                    <tr>
+                                        <th>rol : <input type="text" name="rol" value="Administrador" style="display:inline-block" readonly></th>
                                     </tr>
                                 </table>
                                 <input class="boton" type="submit" value="Agregar patron">

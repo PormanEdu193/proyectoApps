@@ -49,6 +49,7 @@ $users = $user_crud->get_users();
                 <table>
                     <tbody>
                     <tr class="tablaDatosGrandes__filas">
+                        <th class="tablaDatosGrandes__columnas">Id</th>
                         <th class="tablaDatosGrandes__columnas">Id usuario</th>
                         <th class="tablaDatosGrandes__columnas">Cedula</th>
                         <th class="tablaDatosGrandes__columnas">Nombre</th>
@@ -62,6 +63,7 @@ $users = $user_crud->get_users();
                         if (!empty($users)) {
                             foreach ($users as $user) {
                                 echo "<tr>";
+                                echo "<td class='tablaDatosGrandes__columnas'>" . $user['id'] . "</td>";
                                 echo "<td class='tablaDatosGrandes__columnas'>" . $user['id_usuario'] . "</td>";
                                 echo "<td class='tablaDatosGrandes__columnas'>" . $user['identificacion'] . "</td>";
                                 echo "<td class='tablaDatosGrandes__columnas'>" . $user['nombre'] . "</td>";
@@ -71,7 +73,7 @@ $users = $user_crud->get_users();
                                 echo "<td class='tablaDatosGrandes__columnas'>" . $user['rol'] . "</td>";
                                 ?>
                                 <th class="tablaDatosGrandes__columnas">
-                                <?php echo '<a href="Modificar/modificar_administrador.php?id='.$user['id_usuario'].'"><input type="button" value="Actualizar" class="boton" style="padding:2px; display:inline-block;"></a>'; ?>
+                                <?php echo '<a href="Modificar/modificar_administrador.php?id='.$user['id'].'&id_usuario='.$user['id_usuario'].'"><input type="button" value="Actualizar" class="boton" style="padding:2px; display:inline-block;"></a>'; ?>
                                 -
                                 <?php echo '<a href="../../includes/?id='.$user['id_usuario'].'"><input type="button" value="Eliminar" class="boton" style="padding:2px; display:inline-block;"></a>'; ?>
                                 </td>
@@ -89,6 +91,47 @@ $users = $user_crud->get_users();
         </section>
     </main>
     <div class="capa" style="z-index: -1;"></div>
-
+    <script src="../../assets/external/noty/noty.js"></script>
+    <?php 
+      if(isset($_GET['add_success'])){
+        $add_msg = $_GET['add_msg'];
+        echo "
+          <script>
+            new Noty({
+                type: 'success',
+                layout: 'topRight',
+                theme: 'metroui',
+                text: '$add_msg',
+                timeout: 2000,
+            }).show();
+          </script>"; 
+      }
+      if(isset($_GET['delete_alert'])){
+        $alert_msg = $_GET['alert_msg'];
+        echo "
+          <script>
+            new Noty({
+                type: 'warning',
+                layout: 'topRight',
+                theme: 'metroui',
+                text: '$alert_msg',
+                timeout: 2000,
+            }).show();
+          </script>"; 
+      }
+      if(isset($_GET['error'])){
+        $error_msg = $_GET['error_msg'];
+        echo "
+          <script>
+            new Noty({
+                type: 'error',
+                layout: 'topRight',
+                theme: 'metroui',
+                text: '$error_msg',
+                timeout: 2000,
+            }).show();
+          </script>"; 
+      }
+    ?>
 </body> 
 </html>

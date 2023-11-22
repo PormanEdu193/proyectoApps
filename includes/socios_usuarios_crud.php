@@ -18,5 +18,18 @@
                 echo "Error al agregar relacion: " . $e->getMessage();
             }
         }
+
+        function actualizar_socio_usuario($socioUsuario){
+            $id_socio = $socioUsuario->get_id();
+            $id_usuario = $socioUsuario->get_email();
+
+            $consulta = "UPDATE Socios_usuarios SET id_socio = '$id_socio', id_usuario = '$id_usuario' WHERE id_socio = '$id_socio' AND id_usuario = '$id_usuario'";
+            try {
+                $result = mysqli_query($this->connection, $consulta);
+                return $result;
+            } catch (Exception $e) {
+                echo "Error al actualizar la union entre los datos y el usuario: " . $e->getMessage();
+            }
+        }
     }
 ?>

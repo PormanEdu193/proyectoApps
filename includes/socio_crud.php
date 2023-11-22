@@ -34,7 +34,7 @@
             }
         }
 
-        function update_socio($identificacion, $telefono, $email, $direccion, $nombre,$id){
+        function update_socio($id, $nombre, $identificacion, $direccion, $email, $telefono ){
             $consulta = "UPDATE Socios SET nombre = '$nombre', identificacion = '$identificacion', telefono = '$telefono', email = '$email', direccion = '$direccion' WHERE id_socio = '$id'";
             try{
                 $result = mysqli_query($this->connection, $consulta);
