@@ -12,6 +12,20 @@
             return $row;
         }
 
+        function get_salidas_by_date($start_date,$end_date){
+            $SQL = "SELECT * FROM Salidas WHERE fecha_salida BETWEEN '$start_date' AND '$end_date'";
+            try{
+                $result = mysqli_query($this->connection, $SQL);
+                $salidas = array();
+                while ($row = mysqli_fetch_array($result)) {
+                    $salidas[] = $row;
+                }
+                return $salidas;
+            }catch(Exception $e){
+                echo "Error al consultar la salida: " . $e->getMessage();
+            }
+        }
+
         function get_salidas(){
             $SQL = "SELECT * FROM Salidas ";
             try{

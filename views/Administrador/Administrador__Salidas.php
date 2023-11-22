@@ -84,6 +84,7 @@ if (empty($_SESSION['id_usuario'])) {
                     </tbody>
                 </table>
                 <a href="Agregar/agregar_salida.php" class="boton">Agregar nueva Salida</a>
+                <a href="Reportes/salidas_reporte.php" class="boton">Generar reporte de salidas</a>
             </div>
         </section>
     </main>
