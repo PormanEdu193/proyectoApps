@@ -4,39 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../../assets/css/style_login.css">
-  <link href="../../assets/external/noty/noty.css" rel="stylesheet">
+  <link href="assets/external/noty/noty.css" rel="stylesheet">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <title>Login administrador</title>
+  <title>Login</title>
 </head>
 <body>
     <div class="container">
       <div class="left">
         <header>
-            <p>Ingresar como socio</p>
-            <hr>
+          <p>Ingresar como administrator</p>
+          <hr>
                 <div class="anchor">
-                    <a href="../login/index.php">Login Socio</a>
+                    <a href="../Administrador_login/index.php">Login Administrator</a>
                   </div>
-          </header>
+        </header>
         <div class="login">
+
           <div class="title_login">
             <h1>Login</h1>
             <hr>
           </div>
 
           <div class="image">
-            <img src="./.././../assets/images/ship_white.png" alt="Logo">
+            <img src="../../assets/images/ship_white.png" alt="Logo">
           </div>
-          <form action="./.././../includes/procesar_login_admin.php" method="POST">
+        <form action="../../includes/procesar_login_socio.php" method="POST">
             <div class="input">
               <div>
                 <p>Correo electrónico</p>
                 <hr>
               </div>
-              <input type="text" name="email" id="email" placeholder="Ingrese Correo electrónico">
+              <input type="email" name="email" id="email" placeholder="Ingrese Correo electrónico">
             </div>
 
-            <div class="input">
+            <div class="input" id="pass">
               <div>
                 <p>Contraseña</p>
                 <hr>
@@ -44,7 +45,7 @@
               <input type="password" name="password" id="password" placeholder="Ingrese Contraseña">
               <i class='bx bx-show-alt'></i>
             </div>
-            <style>
+              <style>
                   .bx {
                     font-size: 30px;
                     transform: translateX(150px);
@@ -67,15 +68,14 @@
                 });
                 
               </script>
-
             <div class="button_login">
                 <button class="button" type="submit" name="login" id="login">Ingresar</button>
             </div>
+          </div>
         </form>
-        </div>
         <div class="login_footer">
           <p>¿Olvidaste tu contraseña?</p>
-          <a href="#">Click aquí</a>
+          <a href="../Reestablecer_contraseña/index.php">Click aquí</a>
       </div>
       </div>
 
@@ -83,16 +83,25 @@
         <div class="info">
               <div class="title">
                 <div class="welcome">
-                  <p style="text-align: center;"><b>Bienvenido Administrador</b></p>
+                  <p><b>Bienvenido!</b></p>
                 </div>
                 <div class="name">
                   <p><b>Club Náutico Albatros</b></p>
                 </div>
               </div>
+              <div class="register">
+                  <p>¿No tienes cuenta? Registrate aquí</p>
+                  <button class="button" type="button" onclick="register()"> Registarse </button>
+              </div>
         </div>
       </div>
     </div>
-    <script src="../../assets/external/noty/noty.js"></script>
+    <script>
+      function register(){
+        window.location.href = "../Registro";
+      }
+    </script>
+    <script src="assets/external/noty/noty.js"></script>
     <?php 
       if(isset($_GET['login_error'])){
         $error_msg = $_GET['error_msg'];
@@ -116,6 +125,19 @@
                 layout: 'bottomLeft',
                 theme: 'metroui',
                 text: '$alert_msg',
+                timeout: 2000,
+            }).show();
+          </script>"; 
+      }
+      if(isset($_GET['add_success'])){
+        $add_msg = $_GET['add_msg'];
+        echo "
+          <script>
+            new Noty({
+                type: 'success',
+                layout: 'topRight',
+                theme: 'metroui',
+                text: '$add_msg',
                 timeout: 2000,
             }).show();
           </script>"; 

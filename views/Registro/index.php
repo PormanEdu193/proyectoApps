@@ -13,7 +13,7 @@
                     <div class="login">
                         <p>¿Ya tienes una cuenta?</p>
                         <div class="anchor">
-                            <a href="../../index.php">Login</a>
+                            <a href="../login/index.php">Login</a>
                         </div>
                         
                     </div>
