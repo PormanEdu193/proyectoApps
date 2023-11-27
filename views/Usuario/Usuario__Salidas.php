@@ -30,21 +30,7 @@ if (empty($_SESSION['nombre_usuario'])) {
         $salida_crud = new SalidasCrud($connection);
         $salidas = $salida_crud->get_salidas() ;
 
-        /*
-        $listaSalidas = array();
-
-        $consulta = "SELECT Salidas.id_salida, Salidas.fecha_salida, Salidas.hora_salida,Salidas.destino, Salidas.id_barco, Salidas.id_patron 
-                        FROM (Socios INNER JOIN Barcos on Socios.id_socio = Barcos.id_socio) INNER JOIN Salidas
-                        on  Barcos.id_barco = Salidas.id_barco
-                        WHERE Socios.id_socio = '$id'";
-        $result = mysqli_query($connection, $consulta);
-        if($result){
-            while($row = $result->fetch_array()){
-                $salida = new Salida($row['id_salida'], $row['fecha_salida'], $row['hora_salida'], $row['destino'], $row['id_barco'] ,$row['id_patron']);
-                array_push($listaSalidas, $salida);
-            }
-        }
-        */
+        
     ?>
     <header>
         <h1 class="header__Nombre">CLUB NÁUTICO ALBATROS</h1>
@@ -53,6 +39,7 @@ if (empty($_SESSION['nombre_usuario'])) {
             <li><a href="Usuario__Perfil.php">perfil</a></li>
             <li><a href="Usuario__barcos.php">barcos</a></li>
             <li><a href="Usuario__Salidas.php">historial de salidas</a></li>
+            <li><a href="Usuario__agendar.php">agendar salidas</a></li>
             <li><a href="../../includes/cerrar_session.php">salir</a></li>
         </ul>
     </header>

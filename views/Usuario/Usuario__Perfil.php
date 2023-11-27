@@ -51,6 +51,7 @@ if (empty($_SESSION['nombre_usuario'])) {
             <li><a href="Usuario__Perfil.php">perfil</a></li>
             <li><a href="Usuario__barcos.php">barcos</a></li>
             <li><a href="Usuario__Salidas.php">historial de salidas</a></li>
+            <li><a href="Usuario__agendar.php">agendar salidas</a></li>
             <li><a href="../../includes/cerrar_session.php">salir</a></li>
         </ul>
         

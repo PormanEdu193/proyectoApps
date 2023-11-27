@@ -97,6 +97,20 @@ CREATE TABLE `Usuarios` (
   `rol` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- ---------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Agendar`
+--
+
+CREATE TABLE `Agendar` (
+  `id_agenda` varchar(45) NOT NULL,
+  `fecha_agenda` date DEFAULT NULL,
+  `hora_agenda` time DEFAULT NULL,
+  `observaciones` varchar(255) DEFAULT NULL,
+  `id_salida` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 --
 -- Índices para tablas volcadas
 --
@@ -143,6 +157,13 @@ ALTER TABLE `Usuarios`
   ADD PRIMARY KEY (`id_usuario`);
 
 --
+-- Indices de la tabla `Agendar`
+--
+ALTER TABLE `Agendar`
+  ADD PRIMARY KEY (`id_agenda`),
+  ADD KEY `fk_Agendar_Salidas_idx` (`id_salida`);
+
+--
 -- Restricciones para tablas volcadas
 --
 --
@@ -165,4 +186,10 @@ ALTER TABLE `Socios_Usuarios`
   ADD CONSTRAINT `fk_Socios_has_Usuarios_Socios1` FOREIGN KEY (`id_socio`) REFERENCES `Socios` (`id_socio`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_Socios_has_Usuarios_Usuarios1` FOREIGN KEY (`id_usuario`) REFERENCES `Usuarios` (`id_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
+
+--
+-- Filtros para la tabla `Agendar`
+--
+ALTER TABLE `Agendar`
+  ADD CONSTRAINT `fk_Agendar_Salidas` FOREIGN KEY (`id_salida`) REFERENCES `Salidas` (`id_salida`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
