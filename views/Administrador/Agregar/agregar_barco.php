@@ -39,9 +39,6 @@ if (empty($_SESSION['id_usuario'])) {
                             <form action=".././.././.././includes/procesar_agregar_barco.php" method="POST">
                                 <table>
                                     <tr>
-                                        <th>id del barco : <input type="text" name="id_barco" value="" style="display:inline-block"></th>
-                                    </tr>
-                                    <tr>
                                         <th>id del socio : <input type="text" name="id_usuario" value="" style="display:inline-block"></th>
                                     </tr>
                                     <tr>

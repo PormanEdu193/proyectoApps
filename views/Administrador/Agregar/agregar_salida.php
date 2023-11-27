@@ -39,9 +39,6 @@ if (empty($_SESSION['id_usuario'])) {
                             <form action=".././.././.././includes/procesar_agregar_salida.php" method="POST">
                                 <table>
                                     <tr>
-                                        <th>Id salida : <input type="text" name="Id_salida" value="" style="display:inline-block"></th>
-                                    </tr>
-                                    <tr>
                                         <th>Fecha : <input type="date" name="fecha" value="" style="display:inline-block"></th>
                                     </tr>
                                     <tr>

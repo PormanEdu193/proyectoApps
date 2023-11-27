@@ -39,9 +39,6 @@ if (empty($_SESSION['id_usuario'])) {
                             <form action=".././.././.././includes/procesar_agregar_patron.php" method="POST">
                                 <table>
                                     <tr>
-                                        <th>Id patron : <input type="text" name="Id_usuario" value="" style="display:inline-block"></th>
-                                    </tr>
-                                    <tr>
                                         <th>Cedula : <input type="text" name="Cedula" value="" style="display:inline-block"></th>
                                     </tr>
                                     <tr>

@@ -40,9 +40,6 @@ if (empty($_SESSION['id_usuario'])) {
                                 <table>
                                     <th align="center">Datos personales:</th>
                                     <tr>
-                                        <th>Id : <input type="text" name="Id_usuario" value="" style="display:inline-block"></th>
-                                    </tr>
-                                    <tr>
                                         <th>Cedula : <input type="text" name="identificacion" value="" style="display:inline-block"></th>
                                     </tr>
                                     <tr>
@@ -58,9 +55,6 @@ if (empty($_SESSION['id_usuario'])) {
                                         <th>Direccion : <input type="text" name="direccion" value="" style="display:inline-block"></th>
                                     </tr>
                                     <th align="center">Usario:</th>
-                                    <tr>
-                                        <th>Id usuario : <input type="text" name="Id" value="" style="display:inline-block"></th>
-                                    </tr>
                                     <tr>
                                         <th>email : <input type="text" name="email" value="" style="display:inline-block"></th>
                                     </tr>
