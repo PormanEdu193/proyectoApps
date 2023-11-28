@@ -71,8 +71,7 @@ if (empty($_SESSION['id_usuario'])) {
                                 ?>
                                 <th class="tablaDatosGrandes__columnas">
                                 <?php echo '<a href="Modificar/modificar_salida.php?id='.$salida['id_salida'].'"><input type="button" value="Actualizar" class="boton" style="padding:2px; display:inline-block;"></a>'; ?>
-                                -
-                                <?php echo '<a href="../../includes/?id='.$salida['id_salida'].'"><input type="button" value="Eliminar" class="boton" style="padding:2px; display:inline-block;"></a>'; ?>
+                                
                                 </td>
                                 <?php
                                 echo "</tr>";

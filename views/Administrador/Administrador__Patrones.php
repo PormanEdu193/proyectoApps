@@ -73,8 +73,7 @@ if (empty($_SESSION['id_usuario'])) {
                                 ?>
                                 <th class="tablaDatosGrandes__columnas">
                                 <?php echo '<a href="Modificar/modificar_patrones.php?id='.$patron['id_patron'].'"><input type="button" value="Actualizar" class="boton" style="padding:2px; display:inline-block;"></a>'; ?>
-                                -
-                                <?php echo '<a href="../../includes/eliminar_patron.php?id='.$patron['id_patron'].'"><input type="button" value="Eliminar" class="boton" style="padding:2px; display:inline-block;"></a>'; ?>
+                                
                                 </td>
                                 <?php
                                 echo "</tr>";
